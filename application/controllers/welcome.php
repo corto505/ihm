@@ -2,26 +2,36 @@
 
 class Welcome extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		
+		
+		$this->meteo_api('caen');
+	}
+	
+	/**
+	 *
+	 **/
+	public function meteo_api($ville)
+	{
+		
+		$url = 'api.openweathermap.org/data/2.5/forecast/daily?q=caen,france&units=metric&mode=json'; // ou switchcmd=Off
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_URL,$url);
+
+		 $c = curl_exec($ch);
+		curl_close($ch); 
+		$var_json = json_decode($c, true);
+		
+		$data['meteo']=$var_json['list'];
+		$data['ville'] = $var_json['city']['name'];
+		$data['pressure'] = $var_json['list'][1]['pressure'];
+		$data['temp'] = $var_json['list'][1]['temp']['day'];
+		$data['humidity'] = $var_json['list'][1]['humidity'];
+		$data['date'] = date ('Y-m-d', $var_json['list']['1']['dt']);
+		
+		$this->load->view('welcome_vw',$data);
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
