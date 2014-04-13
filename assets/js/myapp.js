@@ -1,5 +1,8 @@
 $(document).ready(function() {
    
+   $('#simple-menu').sidr();
+   
+   /**********/
    var madate = new Date();
  
    

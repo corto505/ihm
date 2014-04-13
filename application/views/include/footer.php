@@ -1,4 +1,4 @@
-</div> <!-- contenair -->
+
 
 <div id="footer">
     <div class="row-fluid">

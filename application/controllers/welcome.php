@@ -4,9 +4,10 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
+		$data['title']= 'Tableau de bord';
 		
-		
-		$this->meteo_api('caen');
+		$this->load->view('welcome_vw',$data);
+		//$this->meteo_api('caen');
 	}
 	
 	/**
