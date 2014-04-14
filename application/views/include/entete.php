@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=349px" />
     <title>Tableau de bord </title>
 
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/flipclock.css">
-    <link rel="stylesheet" href="./assets/css/jquery.sidr.dark.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+  
+      <link rel="stylesheet" href="<?php echo css_url('bootstrap.min') ?>">
+    <link rel="stylesheet" href="<?php echo css_url('flipclock') ?>">
+    <link rel="stylesheet" href="<?php echo css_url('jquery.sidr.dark') ?>">
+    <link rel="stylesheet" href="<?php echo css_url('mystyle') ?>">
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="./assets/js/flipclock.min.js"></script>
-    <script type="text/javascript" src="./assets/js/jquery.sidr.min.js"></script>
-    <script type="text/javascript" src="./assets/js/myapp.js"></script>
-
+    <script type="text/javascript" src="<?php echo js_url('flipclock.min') ?>"></script>
+    <script type="text/javascript" src="<?php echo js_url('jquery.sidr.min') ?>"></script>
+    <script type="text/javascript" src="<?php echo js_url('myapp') ?>"></script>
  
 </head>
 

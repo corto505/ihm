@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = "welcome";
+//$route['modules'] = 'modules/index';
 $route['404_override'] = '';
 
 

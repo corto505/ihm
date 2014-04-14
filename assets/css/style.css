@@ -31,14 +31,39 @@ body{
 
 .btn-menu-dg img{
     margin-left: -15PX;
-       border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
 
 }
 
 .btn-menu-dg{
     border-radius: 5px 5px 5px 5px;
-    background-image: -webkit-linear-gradient(top left, #222 0%, #888 100%);
-    background-image:    -moz-linear-gradient(top left, #222 0%, #888 100%);
-    background-image:         linear-gradient(top left, #222 0%, #888 100%);
+    background-image: -webkit-linear-gradient(top left, #222 0%, #555 100%);
+    background-image:    -moz-linear-gradient(top left, #222 0%, #555 100%);
+    background-image:         linear-gradient(top left, #222 0%, #555 100%);
     margin:7px;
+    border : 1px solid #555;
+}
+
+#ladate{
+    margin: 15px auto 25px auto;
+   border-radius: 5px 5px 5px 5px;
+   text-align: center;
+   width: 200px;
+   background-color: white;
+}
+
+#bartop{
+    widt:100%;
+    background-color: red;
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom :2px;
+}
+
+#jour{
+    font-size: 5em;
+    color: black;
+    font-weight: bold;
+}
+#mois{
+    font-size: 1.5em;
 }
