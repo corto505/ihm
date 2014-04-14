@@ -1,0 +1,101 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+
+@import 'compass';
+
+$couleur-fond : #111;
+$couleur-police : #FFF;
+$font-stack: Lucida Grande, sans-sherif;
+
+body{
+	background-color:$couleur-fond;
+	font : 2em $font-stack;
+	color : $couleur-police;
+
+}
+
+#simple-menu{
+	margin-left:15px;
+	margin-top:6px;
+}
+
+.btn-menu-dg{
+	
+	@include border-radius(5px);
+  @include background-image(linear-gradient(top left, #222, #555));
+  border : solid #555 1px;
+  margin: 7px;
+  
+	h3{
+		margin : auto;
+	}
+	a{
+	color:$couleur-police;
+
+		p{
+		color : #ccc;
+		}
+	}
+	img{
+	margin-left:-15px;
+	@include border-radius(5px)
+	}
+}
+/**   Calendrier ***/
+  #ladate{
+    margin: 15px auto 25px auto;
+    @include border-radius(5px);
+    text-align : center;
+    width:200px;
+    background-color : white;
+    
+    #bartop{
+      width:100%;
+       background-color : red;
+       @include border-radius(5px);
+       margin-bottom:2px;
+    }
+    #jour{
+      font-size: 5em;
+      @include border-radius(5px);
+      margin-bottom:2px;
+      color:black;
+      font-weight:bold;
+    }
+    #mois{
+      font-size:1.5em;
+    }
+  }
+  
+ 
+/*** description des modules */
+.inter{
+	@include border-radius(5px);
+	@include background-image(linear-gradient(left top, black, #777));
+	border : solid #444 1px;
+	@include box-shadow(white);
+	width : 330px;
+	.content{
+		height : 170px;
+		padding-top : 30px;
+	}
+	.bandeau{
+		padding : 2px;
+		font-size : 1.5em;
+		text-align : center;
+		@include background-image(linear-gradient( bottom, #444, #111));
+	}
+	.bouttons{
+		float : right;
+		margin-right : 10px;
+	}
+	.footer{
+		@include background-image(linear-gradient( top, #444, #111));
+		span{
+			font-size : 0.5em;
+		}
+	}
+}
