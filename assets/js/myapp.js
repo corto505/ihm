@@ -62,6 +62,7 @@ $(document).ready(function() {
          url: '../modules/montest',
          dataType : 'json',
          success  : function (data){
+            //console.log(data);
             affiche(data);
          }
       });

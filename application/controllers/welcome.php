@@ -6,8 +6,8 @@ class Welcome extends CI_Controller {
 	{
 		$data['title']= 'Tableau de bord';
 		
-		//$this->load->view('welcome_vw',$data);
-		$this->meteo_api('caen','txt');
+		$this->load->view('welcome_vw',$data);
+		//$this->meteo_api('caen','txt');
 	}
 	
 	/**
