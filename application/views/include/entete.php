@@ -16,6 +16,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="<?php echo js_url('flipclock.min') ?>"></script>
     <script type="text/javascript" src="<?php echo js_url('jquery.sidr.min') ?>"></script>
+   <script type="text/javascript" src="<?php echo js_url('mustache') ?>"></script>
     <script type="text/javascript" src="<?php echo js_url('myapp') ?>"></script>
  
 </head>
@@ -27,6 +28,7 @@
     <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
 
 <div class="row">
+    <div id="bar-top">
 	<div id="sidr" class="sidr left" >
 		<ul>
 			<li><a href="/">Accueil</a></li>
@@ -37,6 +39,8 @@
 			<li><a href="#" id="btnlogin">couloir</a></li>
 		</ul>
 	</div>
+    </div>
+    
 </div>
 
 <div class="row">

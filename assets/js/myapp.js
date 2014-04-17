@@ -1,9 +1,12 @@
 $(document).ready(function() {
+   //:::::::  EVENT CHARGEMENT  :::::::
    
-   //:::::::::::::  MENU LATERAL  :::::::::::::
-   $('#simple-menu').sidr();
+      $('#tabMenu').hide();
+ 
+   //-------  MENU LATERAL  ------
+     $('#simple-menu').sidr();
    
-   //:::::::::   CALENDRIER  :::::::::::::::
+     //------- CALENDRIER  ---------
    var madate = new Date();
    var nomDesJours = new Array('dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi');
    var indicejour = madate.getDay();
@@ -18,9 +21,74 @@ $(document).ready(function() {
    
    $('#jour').html(lejour);
    $('#mois').html(nomDesJours[indicejour]);
+ 
+ 
    
+     //:::::::  EVENT ON CLICK   :::::::
+    $('#btnMenu').click(function (){
+          $('#tabMeto').fadeOut('slow', function (){
+                $('#tabMenu').fadeIn();
+            });
+          
+       
+    });
+   
+   $('#btnMeteo').click(function (){
+          $('#tabMenu').fadeOut('slow', function (){
+                $('#tabMeto').fadeIn();
+            });
+          
+       
+    });
    //:::::::::::  METEO APIOPEN  ::::::::::::::
-     $('#meteo').click(function(){
+ 
+       $('#meteo').click(function(){
+        jQuery.getJSON(
+        'http://api.openweathermap.org/data/2.5/forecast/weather?q=London&mode=json&units=metric',
+        function(data,textStatus,jqXHR){
+             console.dir(data);
+   
+        });
+        
+    });
+   
+   
+   //:::::::::::  Ajax  ::::::::::::
+   
+   $('#test2').click(function (){
+   
+         $.ajax ({
+         type : 'GET',
+         url: '../modules/montest',
+         dataType : 'json',
+         success  : function (data){
+            affiche(data);
+         }
+      });
+      
+   });
+
+});
+function  affiche(data){
+    
+      $('#tplt').html(Mustache.render($('#tplt').html(),{tuto : data}));
+ 
+};
+
+function  affiche1(data){
+    
+    console.dir(data);
+    
+    var $tplt = $('#tplt').html();
+  //  $('#tplt').remove();
+for (var i in data ){
+     $('#sortie').append(Mustache.render($tplt,data[i]));
+}
+ 
+};
+
+//::::::  *********  LES TESTT  ::::::::::
+    $('#meteo').click(function(){
         jQuery.getJSON(
         'http://api.openweathermap.org/data/2.5/forecast/weather?q=London&mode=json&units=metric',
         function(data,textStatus,jqXHR){
@@ -39,45 +107,7 @@ $(document).ready(function() {
                 mytxt+='<img src="http://openweathermap.org/img/w/'+icone+'"/>';
             }
             console.log(mytxt);
-           // $('#contenu').html(mytxt);
+           $('#contenu').html(mytxt);
         });
         
     });
-    
-    $("#meteo2").click(function (){
-        
-        $.ajax({
-          method : 'GET',
-          url :'http://api.openweathermap.org/data/2.5/weather?q=London&mode=json&units=metric'
-          
-        }).done (function (arg){
-           $.each(data.item, function (i, item){
-               
-           })
-        })
-    });
-   
-   
-   
-   //:::::::::::  Ajax  ::::::::::::
-   
-   $('#test2').click(function (){
-      
-      $.ajax ({
-         type : 'GET',
-         url: '../modules/montest',
-         dataType : 'json',
-         success  : function (data){
-            var txt='<div>';
-            $.each (data,function (itemIndex, item){
-               txt+='<P>Nom : '+item.nom+'</p>'+'<P>Type module :'+item.type_module+'</p>'
-            })
-           txt+='</div>'
-             $('#piece').html(txt);
-         }
-      });
-      
-   });
-
-});
-

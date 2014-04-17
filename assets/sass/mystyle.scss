@@ -22,6 +22,14 @@ body{
 	margin-top:6px;
 }
 
+#bar-top{
+	background-color :#428bca;
+	width : 100%;
+	height : 35px;
+	position : absolute;
+	left : 0; right : 0; top : 0;
+}
+
 .btn-menu-dg{
 	
 	@include border-radius(5px);

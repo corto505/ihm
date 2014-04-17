@@ -6,14 +6,14 @@ class Welcome extends CI_Controller {
 	{
 		$data['title']= 'Tableau de bord';
 		
-		$this->load->view('welcome_vw',$data);
-		//$this->meteo_api('caen');
+		//$this->load->view('welcome_vw',$data);
+		$this->meteo_api('caen','txt');
 	}
 	
 	/**
-	 *
+	 *  Interogation API OpnMeteo
 	 **/
-	public function meteo_api($ville)
+	public function meteo_api($ville,$sortie='txt')
 	{
 		
 		$url = 'api.openweathermap.org/data/2.5/forecast/daily?q=caen,france&units=metric&mode=json'; // ou switchcmd=Off
@@ -22,10 +22,16 @@ class Welcome extends CI_Controller {
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_URL,$url);
 
-		 $c = curl_exec($ch);
+		$c = curl_exec($ch);
 		curl_close($ch); 
 		$var_json = json_decode($c, true);
 		
+		if($sortie=='txt'){
+			echo '<pre>';
+			var_dump($var_json);
+		}
+		else
+		{	
 		$data['meteo']=$var_json['list'];
 		$data['ville'] = $var_json['city']['name'];
 		$data['pressure'] = $var_json['list'][1]['pressure'];
@@ -34,5 +40,6 @@ class Welcome extends CI_Controller {
 		$data['date'] = date ('Y-m-d', $var_json['list']['1']['dt']);
 		
 		$this->load->view('welcome_vw',$data);
+		}
 	}
 }
