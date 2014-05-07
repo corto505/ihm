@@ -1,0 +1,41 @@
+[{
+		"nom" : "Inter",
+		"icone" : "star",
+		"couleur" : "btn-info",
+		"pied" : "xxxx",
+		"actif" : true,
+		"url" : ""
+	},
+	{
+		"nom" : "Thermo",
+		"icone" : "star",
+		"couleur" : "btn-warning",
+		"pied" : "chaleur",
+		"actif" : true,
+		"url" : ""
+
+	},
+	{
+		"nom" : "domoticz",
+		"icone" : "star",
+		"couleur" : "btn-success",
+		"pied" : "2n raspberry",
+		"actif" : true,
+		"url" : ""
+	},
+	{
+		"nom" : "lampe",
+		"icone" : "star",
+		"couleur" : "btn-info",
+		"pied" : "toutes les lampes",
+		"actif" : true,
+		"url" : ""
+	},
+	{
+		"nom" : "Volet",
+		"icone" : "star",
+		"couleur" : "btn-info",
+		"pied" : "toutes les lampes",
+		"actif" : true,
+		"url" : ""
+	}]

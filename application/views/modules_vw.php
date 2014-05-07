@@ -1,6 +1,6 @@
  <?php $this->load->view('include/entete'); ?>
 
-<div class="row">
+<div class="row" >
 	
 	 <div class="col-xs-12 col-md-4">
             
@@ -22,9 +22,10 @@
             
      </div>
         
+   
 </div>
 
-<h1>xxxxxx</h1>
+
 <div id="piece"></div>
 
 <A href="#"  id="test2">Test Ajax</A>

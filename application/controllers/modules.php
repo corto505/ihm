@@ -34,15 +34,14 @@ public function mustach(){
 		
         }
         
-}
 
-public function meteo(){
+public function meteo() {
 		
-		$this->load->helper('file');
-		$contenu = read_file ('./assets/json/exple_meteo.json');
+		//$this->load->helper('file');
+		//$contenu = read_file ('./assets/json/exple_meteo.json');
 		
 		//echo $contenu;
-		$this->load->view('modules_ajx_vw');
+		$this->load->view('meteo_ajx_vw');
 		
         }
         

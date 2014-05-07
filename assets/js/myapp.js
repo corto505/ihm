@@ -1,10 +1,116 @@
+//::::::::::::::::  ANGULAR  ::::::::::::
+var app = angular.module('domo',['ngAnimate','ngTouch']);
+
+app.controller ('ctrlBtn',function($scope,$http){
+  
+  $scope.method = 'GET';
+  $scope.url = 'index.php/welcome/lirebouton/file/json';
+
+  $scope.code = null;
+  $scope.response = null;
+
+  $http({method: $scope.method, url: $scope.url}).
+      success(function(data, status) {
+        console.log(status);
+        console.log("autres bnt => "+data);
+        $scope.lesBoutons = data;
+    }).
+    error(function(data, status) {
+      $scope.data = data || "Request failed";
+      $scope.status = status;
+  });
+
+// Boutons du tableau de bords
+   var btnMenu = [{
+    "nom" : "Inter",
+    "icone" : "upload",
+    "couleur" : "btn-green",
+    "pied" : "module On/Off",
+    "actif" : true,
+    "url" : ''
+  },
+  {
+    "nom" : "Lampe",
+    "icone" : "adjust",
+    "couleur" : "btn-green",
+    "pied" : "Les lumières",
+    "actif" : true,
+    "url" : ''
+  },
+  {
+    "nom" : "Volets",
+    "icone" : "align-justify",
+    "couleur" : "btn-green",
+    "pied" : "Cde volets",
+    "actif" : true,
+    "url" : ''
+  },
+  {
+    "nom" : "Pièces",
+    "icone" : "tower",
+    "couleur" : "btn-yellow",
+    "pied" : "Liste des pièces",
+    "actif" : true,
+    "url" : ''
+  },
+  {
+    "nom" : "Scénario",
+    "icone" : "refresh",
+    "couleur" : "btn-blue",
+    "pied" : "Domoticz",
+    "actif" : true,
+    "url" : ''
+  },
+  {
+    "nom" : "domoticz",
+    "icone" : "compressed",
+    "couleur" : "btn-blue",
+    "pied" : "Le serveur",
+    "actif" : true,
+    "url" : ''
+  }];
+
+  console.log("tdb : => "+btnMenu);  
+  $scope.btnMenu = btnMenu;
+
+// gestion du click
+ $scope.pipo = function(code){
+    console.log(' On a cliqué sur ===> '+code);
+    alert("Click via angular");
+  }
+
+
+});
+
+
+
+app.controller ('ctrltstJson',function($scope,$http){
+  
+  $scope.method = 'GET';
+  $scope.url = 'index.php/welcome/lirebouton/file/json';
+
+  $scope.code = null;
+  $scope.response = null;
+
+  $http({method: $scope.method, url: $scope.url}).
+      success(function(data, status) {
+        console.log(status);
+        console.log("autres bnt => "+data);
+        $scope.lesBoutons = data;
+    }).
+    error(function(data, status) {
+      $scope.data = data || "Request failed";
+      $scope.status = status;
+  });
+});
+
+
+
 $(document).ready(function() {
-   //:::::::  EVENT CHARGEMENT  :::::::
+
+   //:::::::           EVENT CHARGEMENT                :::::::
    
       $('#tabMenu').hide();
- 
-   //-------  MENU LATERAL  ------
-     $('#simple-menu').sidr();
    
      //------- CALENDRIER  ---------
    var madate = new Date();
@@ -12,42 +118,43 @@ $(document).ready(function() {
    var indicejour = madate.getDay();
    var lejour = madate.getDate();
    
-   // ::::::::::: Horloge  ::::::::::  
-   var clock = $('.your-clock').FlipClock({
-         // ... your options here
-   });
-   var hh = ( 3600 * madate.getHours()) +(60 * madate.getMinutes())+ (madate.getSeconds());
-   clock.setTime(hh+2);
-   
+        
    $('#jour').html(lejour);
    $('#mois').html(nomDesJours[indicejour]);
  
  
    
-     //:::::::  EVENT ON CLICK   :::::::
+     //:::::::              EVENT ON CLICK                 :::::::
+     
+      //-----    affiche la div Meteo  ------
+   $('#testclick').click(function (){
+          alert('Jquery : Test click');
+    });
+   
+
+     //----    affiche la div Menu -----
     $('#btnMenu').click(function (){
           $('#tabMeto').fadeOut('slow', function (){
                 $('#tabMenu').fadeIn();
             });
-          
-       
     });
    
+   //-----    affiche la div Meteo  ------
    $('#btnMeteo').click(function (){
           $('#tabMenu').fadeOut('slow', function (){
                 $('#tabMeto').fadeIn();
             });
-          
-       
     });
-   //:::::::::::  METEO APIOPEN  ::::::::::::::
+   
+   
+   //:::::::::::  METEO API-OPEN  ::::::::::::::
  
        $('#meteo').click(function(){
         jQuery.getJSON(
-        'http://api.openweathermap.org/data/2.5/forecast/weather?q=London&mode=json&units=metric',
+        'http://api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=json&units=metric&cnt=8',
         function(data,textStatus,jqXHR){
-             console.dir(data);
-   
+             //console.dir(data);
+             affiche1(data);
         });
         
     });
@@ -70,26 +177,38 @@ $(document).ready(function() {
    });
 
 });
+
+
+/**
+ *  Affichage std
+ **/
 function  affiche(data){
     
-      $('#tplt').html(Mustache.render($('#tplt').html(),{tuto : data}));
+      $('#tplt').html(Mustache.render($('#tplt').html(),{block_data : data}));
  
 };
 
+
+/**
+ *  On fait la boucle dans js et non avec Mustache
+ **/
 function  affiche1(data){
     
-    console.dir(data);
-    
-    var $tplt = $('#tplt').html();
-  //  $('#tplt').remove();
-for (var i in data ){
-     $('#sortie').append(Mustache.render($tplt,data[i]));
-}
- 
+    console.log('ville :'+data.city.name);
+    console.dir(data.list);
+   
+ for (var i in data.list ){
+       console.dir(data.list[i].temp.day+" ?? "+data.list[i].temp.dt);
+   
+   }
 };
 
+function testMustach(){
+   
+}
+
 //::::::  *********  LES TESTT  ::::::::::
-    $('#meteo').click(function(){
+    $('#meteox').click(function(){
         jQuery.getJSON(
         'http://api.openweathermap.org/data/2.5/forecast/weather?q=London&mode=json&units=metric',
         function(data,textStatus,jqXHR){

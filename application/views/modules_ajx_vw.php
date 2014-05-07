@@ -3,7 +3,7 @@
 
 
     <div id='tplt'>
-    {{#tuto}}
+    {{#block_data}}
     {{#piece}}
     <div class="col-xs-12 col-md-3">        
         <div class="inter">
@@ -24,7 +24,7 @@
             
      </div>
        {{/piece}}
-     {{/tuto}} 
+     {{/block_data}} 
  </div>
 
 

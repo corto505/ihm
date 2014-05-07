@@ -2,26 +2,24 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0;" />
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Cache-Control" content="public"/>
-    <meta name="viewport" content="width=349px" />
+    <meta name="viewport" content="width=1057px" />
     <title>Tableau de bord </title>
 
   
       <link rel="stylesheet" href="<?php echo css_url('bootstrap.min') ?>">
-    <link rel="stylesheet" href="<?php echo css_url('flipclock') ?>">
-    <link rel="stylesheet" href="<?php echo css_url('jquery.sidr.dark') ?>">
-    <link rel="stylesheet" href="<?php echo css_url('mystyle') ?>">
+      <link rel="stylesheet" href="<?php echo css_url('mystyle') ?>">
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="<?php echo js_url('flipclock.min') ?>"></script>
-    <script type="text/javascript" src="<?php echo js_url('jquery.sidr.min') ?>"></script>
-   <script type="text/javascript" src="<?php echo js_url('mustache') ?>"></script>
+    <script type="text/javascript" src="<?php echo js_url('jquery_1.10.min') ?>"></script>
+    <script type="text/javascript" src="<?php echo js_url('angular.min') ?>"></script>
+     <script type="text/javascript" src="<?php echo js_url('angular-touch.min') ?>"></script>
+      <script type="text/javascript" src="<?php echo js_url('angular-animate.min') ?>"></script>
     <script type="text/javascript" src="<?php echo js_url('myapp') ?>"></script>
  
 </head>
 
-<body>
+<body ng-app="domo">
     <!--[if lt IE 7]>
              <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
          <![endif]-->
@@ -29,26 +27,19 @@
 
 <div class="row">
     <div id="bar-top">
-	<div id="sidr" class="sidr left" >
-		<ul>
-			<li><a href="/">Accueil</a></li>
-			<li><a href="/piece/all">Salle</a></li>
-			<li><a href="/vnstat/x">Bureau</a></li>
-			<li><a href="/scenari">Chambre rdc</a></li>
-			<li class="hidden-xs hiiden-sm"><a href="/heure">sdb</a></li>
-			<li><a href="#" id="btnlogin">couloir</a></li>
-		</ul>
-	</div>
-    </div>
-    
+    </div>    
 </div>
 
 <div class="row">
-    
-    <a id="simple-menu" href="#sidr">
-        <button class="btn btn-primary ">
-                <span class="glyphicon glyphicon-th-list"> </span>
-        </button>
+    <span>  ></span>
+    <a href="<?php base_url() ?>" class="btn btn-primary ">
+        <span class="glyphicon glyphicon-home"> </span>
     </a>
+    <a href="http://192.168.0.70:8080" class="btn btn-primary ">
+        <span class="glyphicon glyphicon-hdd"> </span>
+   </a>
+      <button class="btn btn-primary ">
+        <span class="glyphicon glyphicon-time"> </span>
+     </button>
 </div>
         
