@@ -30,18 +30,18 @@
     </div>    
 </div>
 
-<div class="row">
-    <span>  ></span>
-    <a href="/ihm" class="btn btn-primary ">
-        <span class="glyphicon glyphicon-home"> </span>
+<div class="row barre_menu">
+    <span>  </span>
+    <a href="/ihm" class="btn btn-green ">
+        <span class="glyphicon glyphicon-2x glyphicon-home"> </span>
     </a>
-    <button class="btn btn-primary" id="btnTdb">
-        <span class="glyphicon glyphicon-th-large"> </span>
+    <button class="btn btn-green" id="btnTdb">
+        <span class="glyphicon glyphicon-2x glyphicon-th-large"> </span>
     </button>
-    <button class="btn btn-primary" id="btnMenu">
-        <span class="glyphicon glyphicon-list-alt"> </span>
+    <button class="btn btn-green" id="btnMenu">
+        <span class="glyphicon glyphicon-2x glyphicon-list-alt"> </span>
      </button>
-      <button class="btn btn-primary">
-        <span class="glyphicon glyphicon-time"> </span>
+      <button class="btn btn-green>
+        <span class="glyphicon glyphicon-2x glyphicon-time"> </span>
      </button>
 </div>

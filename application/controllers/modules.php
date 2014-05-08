@@ -17,6 +17,13 @@ class Modules extends CI_Controller {
 		$this->liste_modules('Temp');
      }
 
+     /*
+	*  Les des # thermomètres
+	*/
+	public function scenes(){		
+			$this->liste_modules('Group');
+     }
+
       /*
 	*  Liste des modules filtre par pièces
 	*/
@@ -35,14 +42,13 @@ class Modules extends CI_Controller {
 		//echo '<br> modules : URL = '.$url;
 		$content = curl_json($url);
 		//var_dump($content);
-	
 		///redirect(base_url());
 		
         }
 
 
 /**
- *  Affiche les modules pas pieces via ajax et mustache
+ *  Affiche les modules par pieces via ajax et ANgular
  **/
 	public function liste_modules($type){
 

@@ -2,68 +2,76 @@
 	"tdb" : [
 		{
 			"type" : "tdb",
-			"nom" : "Inter",
-			"icone" : "star",
+			"nom" : "Météo",
+			"icone" : "cloud",
 			"couleur" : "btn-info",
-			"pied" : "xxxx",
-			"actif" : true,
-			"url" : "index.php/modules"
-		},
-		{
-			"type" : "tdb",
-			"nom" : "Thermo",
-			"icone" : "star",
-			"couleur" : "btn-warning",
-			"pied" : "chaleur",
-			"actif" : true,
+			"pied" : "Api Météo",
+			"actif" : false,
 			"url" : ""
-
 		},
 		{
 			"type" : "tdb",
 			"nom" : "domoticz dump",
-			"icone" : "star",
+			"icone" : "save",
 			"couleur" : "btn-success",
-			"pied" : "Récupere les modules en json",
+			"pied" : "Les modules en json",
 			"actif" : true,
 			"url" : "index.php/welcome/domo_dump"
+		},
+		{
+			"type" : "tdb",
+			"nom" : "Domoticz",
+			"icone" : "edit",
+			"couleur" : "btn-warning",
+			"pied" : "Le serveur",
+			"actif" : false,
+			"url" : "http://192.168.0.66:8080"
 		}
 	],
 	"menu" : [
 		{
+		    "type" : "menu",
+		    "nom" : "Pièces",
+		    "icone" : "tower",
+		    "couleur" : "btn-orange",
+		    "pied" : "Liste des pièces",
+		    "actif" : true,
+		    "url" :  "index.php/welcome/affichepieces"
+	  	},
+		{
 			"type" : "menu",
-			"nom" : "Lumières",
+			"nom" : "Inter",
 			"icone" : "star",
-			"couleur" : "btn-info",
-			"pied" : "toutes les lampes",
+			"couleur" : "btn-blue",
+			"pied" : "On/off et lampes",
 			"actif" : true,
 			"url" : "index.php/modules"
 		},
 		{
 			"type" : "menu",
 			"nom" : "Température",
-			"icone" : "star",
-			"couleur" : "btn-info",
+			"icone" : "dashboard",
+			"couleur" : "btn-blue",
 			"pied" : "Liste Thermos",
 			"actif" : true,
 			"url" : "index.php/modules/thermo"
 		},
 		{
 		    "type" : "menu",
-		    "nom" : "Inter",
+		    "nom" : "Scènes",
 		    "icone" : "upload",
-		    "couleur" : "btn-green",
+		    "couleur" : "btn-blue",
 		    "pied" : "module On/Off",
 		    "actif" : true,
-		    "url" :  ""
+		    "url" :  "index.php/modules/scenes"
 	  },
 	  {
 		    "type" : "menu",
-		    "nom" : "Lampe",
+		    "nom" : "????",
 		    "icone" : "adjust",
 		    "couleur" : "btn-green",
 		    "pied" : "Les lumières",
-		    "actif" : true,
+		    "actif" : false,
 		    "url" :  ""
 	  },
 	  {
@@ -72,34 +80,16 @@
 		    "icone" : "align-justify",
 		    "couleur" : "btn-green",
 		    "pied" : "Cde volets",
-		    "actif" : true,
+		    "actif" : false,
 		    "url" :  ""
-	  },
-	  {
-		    "type" : "menu",
-		    "nom" : "Pièces",
-		    "icone" : "tower",
-		    "couleur" : "btn-yellow",
-		    "pied" : "Liste des pièces",
-		    "actif" : true,
-		    "url" :  "index.php/welcome/affichepieces"
 	  },
 	  {
 		    "type" : "menu",
 		    "nom" : "Scénario",
 		    "icone" : "refresh",
-		    "couleur" : "btn-blue",
+		    "couleur" : "btn-purple",
 		    "pied" : "Domoticz",
-		    "actif" : true,
-		    "url" :  ""
-	  },
-	  {
-		    "type" : "menu",
-		    "nom" : "domoticz",
-		    "icone" : "compressed",
-		    "couleur" : "btn-blue",
-		    "pied" : "Le serveur",
-		    "actif" : true,
+		    "actif" : false,
 		    "url" :  ""
 	  }
 	]

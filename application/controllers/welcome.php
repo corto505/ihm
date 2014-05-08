@@ -53,6 +53,7 @@ class Welcome extends CI_Controller {
 	}
 
 /**
+*  Lecture d'un fichier  JSON
 * !!**!! ATTENTION ne pas mettre d'echo, sinon pollue le JSON  !!**!!
 */
 	public function lirebouton($format='tab',$sortie='json'){ //ok
@@ -73,6 +74,7 @@ class Welcome extends CI_Controller {
 
 
 	/**
+	*  Lecture d'un fichier  JSON
 	* !!**!! ATTENTION ne pas mettre d'echo, sinon pollue le JSON  !!**!!
 	*/
 	public function lirepieces($format='tab',$sortie='json'){ 
@@ -109,6 +111,23 @@ class Welcome extends CI_Controller {
 			echo $data;
 		}
 	}
+
+
+	/*
+	*  Recupere les infoDomoticz via requete HTTP
+	*/
+	public function lireScenes($sortie='json'){		
+		
+		$url='http://192.168.0.66:8080/json.htm?type=scenes';
+		$data = curl_json($url); var_dump($data);
+
+		if($sortie=='json'){
+			echo $data; // encode => transforme en tab PHP
+		}else
+		{
+			echo $data;
+		}
+     }
 
 
 	/**

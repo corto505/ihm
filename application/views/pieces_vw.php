@@ -10,7 +10,7 @@
                 </div>
                 <div class="content">
                     <a href="{{piece.url}}">
-                       <span class="glyphicon glyphicon-{{piece.icone}}"></span>
+                       <span class="glyphicon glyphicon-2x glyphicon-{{piece.icone}}"></span>
                     </a>
                 </div>
                 <div class="footer">

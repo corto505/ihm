@@ -1,17 +1,10 @@
 [
 {
   "name"	: "Séjour",
-  "couleur"	: "btn-green",
+  "couleur"	: "btn-purple",
   "url"	: "../../index.php/modules/piece/salle",
   "icone" : "hand-right",
   "actif"	: "oui"
-},
-{
-  "name"  : "Salle de bain",
-  "couleur" : "btn-green",
-  "url" : "../../index.php/modules/piece/sdb",
-  "icone" : "hand-right",
-  "actif" : "oui"
 },
 {
   "name"  : "Chambre RDC",
@@ -21,22 +14,29 @@
   "actif" : "oui"
 },
 {
+  "name"  : "Salle de bain",
+  "couleur" : "btn-blue",
+  "url" : "../../index.php/modules/piece/sdb",
+  "icone" : "hand-right",
+  "actif" : "oui"
+},
+{
   "name"  : "Cuisine",
-  "couleur" : "btn-green",
+  "couleur" : "btn-blue",
   "url" : "../../index.php/modules/piece/cuisine",
   "icone" : "hand-right",
   "actif" : "oui"
 },
 {
   "name"  : "Couloir",
-  "couleur" : "btn-green",
+  "couleur" : "btn-orange",
   "url" : "../../index.php/modules/piece/couloir",
   "icone" : "hand-right",
   "actif" : "oui"
 },
 {
   "name"  : "Bureau",
-  "couleur" : "btn-green",
+  "couleur" : "btn-orange",
   "url" : "../../index.php/modules/piece/bureau",
   "icone" : "hand-right",
   "actif" : "oui"

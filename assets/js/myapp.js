@@ -32,7 +32,12 @@ app.controller ('ctrlBtn',function($scope,$http){
 app.controller ('ctrlModules',function($scope,$http){
   
   $scope.method = 'GET';
-  $scope.url = 'http://192.168.0.63:8888/ihm/index.php/welcome/lireFileDomo/file/json';
+
+  //console.log($scope.filterOptions);
+  
+    $scope.url = 'http://192.168.0.63:8888/ihm/index.php/welcome/lireFileDomo/file/json';
+  
+    //$scope.url = 'http://192.168.0.63:8888/ihm/index.php/welcome/lireScenes/json';
 
   $scope.code = null;
   $scope.response = null;

@@ -10,11 +10,11 @@
                 </div>
                 <div class="content">
                     <a href="{{bouton.url}}" class="btn" type="button">
-                        <span class="glyphicon glyphicon-{{bouton.icone}}"></span>
+                        <span class="glyphicon glyphicon-2x glyphicon-{{bouton.icone}}"></span>
                     </a>
                 </div>
                 <div class="footer">
-                     <span>{{bouton.pied}}</span>
+                     <span>{{bouton.pied}} - {{bouton.actif}}</span>
                 </div>
             </div>
                 
@@ -32,19 +32,16 @@
                 </div>
                 <div class="content">
                     <a href="{{menu.url}}">
-                        <span class="glyphicon glyphicon-{{menu.icone}}"></span>
+                        <span class="glyphicon glyphicon-2x glyphicon-{{menu.icone}}"></span>
                     </a>
                 </div>
                 <div class="footer">
-                        <span>{{menu.pied}}</span>
+                        <span>{{menu.pied}} - {{menu.actif}}</span>
                 </div>
             </div>
                 
          </div>
     </div>
 
-    <a href="#" id='testclick'>
-            <span>Click out angular</span>
-     </a>
 </div>
 <?php $this->load->view('include/footer'); ?>

@@ -11,6 +11,8 @@ $couleur-police : #FFF;
 $btn-green : #1ABC9C;
 $btn-yellow: #F1C40F;
 $btn-blue : #3498DB;
+$btn-purple : #884DA7;
+$btn-orange : orange;
 $font-stack: Lucida Grande, sans-sherif;
 
 body{
@@ -22,6 +24,9 @@ body{
 
 }
 
+.barre_menu a{
+	color : white;
+}
 .chide{
 	display:none;
 }
@@ -30,22 +35,25 @@ body{
 	padding : 15px;	
 }
 
+.glyphicon-2x{
+	font-size: 40px;
+}
+
 #simple-menu{
 	margin-left:15px;
 	margin-top:6px;
 }
 
 #bar-top{
-	background-color :$btn-blue;
+	background-color :$btn-green;
 	width : 100%;
-	height : 35px;
+	height : 60px;
 	position : absolute;
 	left : 0; right : 0; top : 0;
 }
 
 .btn-menu-dg{
-	
- @include border-radius(5px);
+  @include border-radius(5px);
   @include background-image(linear-gradient(top left, #222, #555));
   border : solid #555 1px;
   margin: 7px;
@@ -96,19 +104,20 @@ body{
 .inter{
 	@include border-radius(5px);
 	@include background-image(linear-gradient(left top, black, #777));
-	border : solid #444 1px;
+	border : solid #666 1px;
 	@include box-shadow(white);
 	width : 330px;
-	margin-top : 10px;
+	margin-bottom : 20px;
 	.content{
-		height : 175px;
+		height : 155px;
 		padding-top : 30px;
 	}
 	.bandeau{
 		padding : 2px;
-		font-size : 0.9em;
+		font-size : 0.95em;
 		text-align : center;
-		@include background-image(linear-gradient( bottom, #444, #111));
+		@include background-image(linear-gradient( bottom, #333 #111));
+		line-height : 2.2em;
 	}
 	.bouttons{
 		float : right;
@@ -117,19 +126,25 @@ body{
 	.footer{
 		@include background-image(linear-gradient( top, #444, #111));
 		span{
-			font-size : 0.5em;
+			font-size : 0.8em;
 		}
 	}
 }
 
 .btn-green{
-	@include background-image(linear-gradient( #D1D5D8, $btn-green));
+	background-color : $btn-green;
 }
 .btn-yellow{
-	@include background-image(linear-gradient( #D1D5D8, $btn-yellow));
+	background-color : $btn-yellow;
 }
 .btn-blue{
-	@include background-image(linear-gradient( #D1D5D8, $btn-blue));
+	background-color :$btn-blue;
+}
+.btn-purple{
+	background-color :$btn-purple;
+}
+.btn-orange{
+	background-color :$btn-orange;
 }
 
 .btn_std{
@@ -137,21 +152,24 @@ body{
 	border : solid #444 1px;
 
 	text-align : center;
-	margin-top:5px;
+	margin-bottom:15px;
 	.content{
 	padding-top : 10px;
 		
 	}
 	.bandeau{
 		padding : 2px;
-		font-size : 0.8em;
+		font-size : 0.95em;
 		
 		
 	}
 	.footer{
 		
 		span{
-			font-size : 0.5em;
+			font-size : 0.75em;
 		}
+	}
+	a{
+		color : white;
 	}
 }

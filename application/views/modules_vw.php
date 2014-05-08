@@ -1,5 +1,5 @@
  <?php $this->load->view('include/entete'); ?>
- <h2> Titre - <?php echo $leType ;?></h2>
+ <h3 class="text-center"> <?php echo $leType ;?></h3>
 <div class="content" ng-controller="ctrlModules">
 
     <div class="row" ng-init="filterOptions ={val : '<?php echo $leType ;?>'}">
@@ -26,8 +26,6 @@
             
        
     </div>
-
-<button class="bnt btn-success btn-lg btn_appareil" type="button" typebtn="On" idbtn="11">On</button>
 
 </div>
 

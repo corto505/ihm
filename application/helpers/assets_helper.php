@@ -45,7 +45,7 @@ if(!function_exists('curl_json'))
 		}
 
 		$ch = curl_init();
-		echo '<br> curl : URL = '.$url;
+		//echo '<br> curl : URL = '.$url;
 		// Set the url, number of GET vars, GET data
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_POST, false);
