@@ -32,14 +32,16 @@
 
 <div class="row">
     <span>  ></span>
-    <a href="<?php base_url() ?>" class="btn btn-primary ">
+    <a href="/ihm" class="btn btn-primary ">
         <span class="glyphicon glyphicon-home"> </span>
     </a>
-    <a href="http://192.168.0.70:8080" class="btn btn-primary ">
-        <span class="glyphicon glyphicon-hdd"> </span>
-   </a>
-      <button class="btn btn-primary ">
+    <button class="btn btn-primary" id="btnTdb">
+        <span class="glyphicon glyphicon-th-large"> </span>
+    </button>
+    <button class="btn btn-primary" id="btnMenu">
+        <span class="glyphicon glyphicon-list-alt"> </span>
+     </button>
+      <button class="btn btn-primary">
         <span class="glyphicon glyphicon-time"> </span>
      </button>
 </div>
-        

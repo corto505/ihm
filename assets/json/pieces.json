@@ -1,114 +1,44 @@
 [
 {
-  "piece"	: "salle",
-  "type_module"	: "lampe",
-  "code"	: "M1",
-  "nom"		: "guirlande verte",
+  "name"	: "Séjour",
+  "couleur"	: "btn-green",
+  "url"	: "../../index.php/modules/piece/salle",
+  "icone" : "hand-right",
   "actif"	: "oui"
 },
 {
-  "piece"	: "salle",
-  "type_module"	: "lampe",
-  "code"	: "M2",
-  "nom"		: "spots corto",
-  "actif"	: "oui"
+  "name"  : "Salle de bain",
+  "couleur" : "btn-green",
+  "url" : "../../index.php/modules/piece/sdb",
+  "icone" : "hand-right",
+  "actif" : "oui"
 },
 {
-  "piece"	: "bureau",
-  "type_module"	: "lampe",
-  "code"	: "M3",
-  "nom"		: "lampe pied",
-  "actif"	: "oui"
+  "name"  : "Chambre RDC",
+  "couleur" : "btn-green",
+  "url" : "../../index.php/modules/piece/chambre",
+  "icone" : "hand-right",
+  "actif" : "oui"
 },
 {
-  "piece"	: "bureau",
-  "type_module"	: "lampe",
-  "code"	: "M4",
-  "nom"		: "lampe bureau",
-  "actif"	: "oui"
+  "name"  : "Cuisine",
+  "couleur" : "btn-green",
+  "url" : "../../index.php/modules/piece/cuisine",
+  "icone" : "hand-right",
+  "actif" : "oui"
 },
 {
-  "piece"	: "salle",
-  "type_module"	: "lampe",
-  "code"	: "M5",
-  "nom"		: "marine",
-  "actif"	: "oui"
+  "name"  : "Couloir",
+  "couleur" : "btn-green",
+  "url" : "../../index.php/modules/piece/couloir",
+  "icone" : "hand-right",
+  "actif" : "oui"
 },
 {
-  "piece"	: "",
-  "type_module"	: "appareil",
-  "code"	: "M6",
-  "nom"		: "",
-  "actif"	: "non"
-},
-{
-  "piece"	: "",
-  "type_module"	: "lampe",
-  "code"	: "M7",
-  "nom"		: "",
-  "actif"	: "non"
-},
-{
-  "piece"	: "",
-  "type_module"	: "appareil",
-  "code"	: "M8",
-  "nom"		: "",
-  "actif"	: "non"
-},
-{
-  "piece"	: "chambre 1",
-  "type_module"	: "appareil",
-  "code"	: "M9",
-  "nom"		: "Radiateur",
-  "actif"	: "oui"
-},
-{
-  "piece"	: "",
-  "type_module"	: "lampe",
-  "code"	: "M10",
-  "nom"		: "",
-  "actif"	: "non"
-},
-{
-  "piece"	: "chambre",
-  "type_module"	: "appareil",
-  "code"	: "M11",
-  "nom"		: "radiateur",
-  "actif"	: "oui"
-},
-{
-  "piece"	: "bureau",
-  "type_module"	: "appareil",
-  "code"	: "M12",
-  "nom"		: "radiateur 1",
-  "actif"	: "oui"
-},
-{
-  "piece"	: "sdb",
-  "type_module"	: "appareil",
-  "code"	: "M13",
-  "nom"		: "Radiateur",
-  "actif"	: "oui"
-},
-{
-  "piece"	: "",
-  "type_module"	: "appareil",
-  "code"	: "M14",
-  "nom"		: "",
-  "actif"	: "non"
-},
-{
-  "piece"	: "",
-  "type_module"	: "appareil",
-  "code"	: "M15",
-  "nom"		: "",
-  "actif"	: "non"
-},
-{
-  "piece"	: "",
-  "type_module"	: "appareil",
-  "code"	: "M16",
-  "nom"		: "",
-  "actif"	: "non"
+  "name"  : "Bureau",
+  "couleur" : "btn-green",
+  "url" : "../../index.php/modules/piece/bureau",
+  "icone" : "hand-right",
+  "actif" : "oui"
 }
 ]

@@ -31,4 +31,41 @@ if ( ! function_exists('img'))
 		return '<img src="' . img_url($nom) . '" alt="' . $alt . '" />';
 	}
 }
+
+// :::::::::   GET JSON WITH CURL :::::
+if(!function_exists('curl_json'))
+{
+	function curl_json($url,$sortie='json'){
+
+				// set HTTP header
+		if($sortie=='json'){
+			$headers = array(
+		    'Content-Type: application/json',
+			);
+		}
+
+		$ch = curl_init();
+		echo '<br> curl : URL = '.$url;
+		// Set the url, number of GET vars, GET data
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_POST, false);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+		// Execute request
+		$result = curl_exec($ch);
+
+		// Close connection
+		curl_close($ch);
+
+		// get the result and parse to JSON
+		if($sortie=='tab')
+			return json_decode($result, true);
+		else
+		 return $result;		
+	}
+}
+
 ?>

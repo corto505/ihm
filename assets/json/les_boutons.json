@@ -1,41 +1,106 @@
-[{
-		"nom" : "Inter",
-		"icone" : "star",
-		"couleur" : "btn-info",
-		"pied" : "xxxx",
-		"actif" : true,
-		"url" : ""
-	},
-	{
-		"nom" : "Thermo",
-		"icone" : "star",
-		"couleur" : "btn-warning",
-		"pied" : "chaleur",
-		"actif" : true,
-		"url" : ""
+{
+	"tdb" : [
+		{
+			"type" : "tdb",
+			"nom" : "Inter",
+			"icone" : "star",
+			"couleur" : "btn-info",
+			"pied" : "xxxx",
+			"actif" : true,
+			"url" : "index.php/modules"
+		},
+		{
+			"type" : "tdb",
+			"nom" : "Thermo",
+			"icone" : "star",
+			"couleur" : "btn-warning",
+			"pied" : "chaleur",
+			"actif" : true,
+			"url" : ""
 
-	},
-	{
-		"nom" : "domoticz",
-		"icone" : "star",
-		"couleur" : "btn-success",
-		"pied" : "2n raspberry",
-		"actif" : true,
-		"url" : ""
-	},
-	{
-		"nom" : "lampe",
-		"icone" : "star",
-		"couleur" : "btn-info",
-		"pied" : "toutes les lampes",
-		"actif" : true,
-		"url" : ""
-	},
-	{
-		"nom" : "Volet",
-		"icone" : "star",
-		"couleur" : "btn-info",
-		"pied" : "toutes les lampes",
-		"actif" : true,
-		"url" : ""
-	}]
+		},
+		{
+			"type" : "tdb",
+			"nom" : "domoticz dump",
+			"icone" : "star",
+			"couleur" : "btn-success",
+			"pied" : "Récupere les modules en json",
+			"actif" : true,
+			"url" : "index.php/welcome/domo_dump"
+		}
+	],
+	"menu" : [
+		{
+			"type" : "menu",
+			"nom" : "Lumières",
+			"icone" : "star",
+			"couleur" : "btn-info",
+			"pied" : "toutes les lampes",
+			"actif" : true,
+			"url" : "index.php/modules"
+		},
+		{
+			"type" : "menu",
+			"nom" : "Température",
+			"icone" : "star",
+			"couleur" : "btn-info",
+			"pied" : "Liste Thermos",
+			"actif" : true,
+			"url" : "index.php/modules/thermo"
+		},
+		{
+		    "type" : "menu",
+		    "nom" : "Inter",
+		    "icone" : "upload",
+		    "couleur" : "btn-green",
+		    "pied" : "module On/Off",
+		    "actif" : true,
+		    "url" :  ""
+	  },
+	  {
+		    "type" : "menu",
+		    "nom" : "Lampe",
+		    "icone" : "adjust",
+		    "couleur" : "btn-green",
+		    "pied" : "Les lumières",
+		    "actif" : true,
+		    "url" :  ""
+	  },
+	  {
+		    "type" : "menu",
+		    "nom" : "Volets",
+		    "icone" : "align-justify",
+		    "couleur" : "btn-green",
+		    "pied" : "Cde volets",
+		    "actif" : true,
+		    "url" :  ""
+	  },
+	  {
+		    "type" : "menu",
+		    "nom" : "Pièces",
+		    "icone" : "tower",
+		    "couleur" : "btn-yellow",
+		    "pied" : "Liste des pièces",
+		    "actif" : true,
+		    "url" :  "index.php/welcome/affichepieces"
+	  },
+	  {
+		    "type" : "menu",
+		    "nom" : "Scénario",
+		    "icone" : "refresh",
+		    "couleur" : "btn-blue",
+		    "pied" : "Domoticz",
+		    "actif" : true,
+		    "url" :  ""
+	  },
+	  {
+		    "type" : "menu",
+		    "nom" : "domoticz",
+		    "icone" : "compressed",
+		    "couleur" : "btn-blue",
+		    "pied" : "Le serveur",
+		    "actif" : true,
+		    "url" :  ""
+	  }
+	]
+}

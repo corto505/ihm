@@ -22,6 +22,10 @@ body{
 
 }
 
+.chide{
+	display:none;
+}
+
 .content{
 	padding : 15px;	
 }
@@ -95,13 +99,14 @@ body{
 	border : solid #444 1px;
 	@include box-shadow(white);
 	width : 330px;
+	margin-top : 10px;
 	.content{
-		height : 170px;
+		height : 175px;
 		padding-top : 30px;
 	}
 	.bandeau{
 		padding : 2px;
-		font-size : 1.5em;
+		font-size : 0.9em;
 		text-align : center;
 		@include background-image(linear-gradient( bottom, #444, #111));
 	}

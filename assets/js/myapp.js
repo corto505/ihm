@@ -1,6 +1,10 @@
 //::::::::::::::::  ANGULAR  ::::::::::::
 var app = angular.module('domo',['ngAnimate','ngTouch']);
 
+app.config(function($locationProvider){
+  $locationProvider.html5Mode(true);
+});
+//-------------  LES BTN  ---------
 app.controller ('ctrlBtn',function($scope,$http){
   
   $scope.method = 'GET';
@@ -12,105 +16,100 @@ app.controller ('ctrlBtn',function($scope,$http){
   $http({method: $scope.method, url: $scope.url}).
       success(function(data, status) {
         console.log(status);
-        console.log("autres bnt => "+data);
-        $scope.lesBoutons = data;
-    }).
-    error(function(data, status) {
-      $scope.data = data || "Request failed";
-      $scope.status = status;
+        
+        $scope.lesBoutonsTdb = data.tdb;
+        $scope.lesBoutonsMenu = data.menu;
+        console.log("Menu bnt => "+$scope.lesBoutonsMenu);
+        console.log("Tdb bnt => "+$scope.lesBoutonsTdb);
+      }).
+      error(function(data, status) {
+        $scope.data = data || "Request failed";
+        $scope.status = status;
   });
 
-// Boutons du tableau de bords
-   var btnMenu = [{
-    "nom" : "Inter",
-    "icone" : "upload",
-    "couleur" : "btn-green",
-    "pied" : "module On/Off",
-    "actif" : true,
-    "url" : ''
-  },
-  {
-    "nom" : "Lampe",
-    "icone" : "adjust",
-    "couleur" : "btn-green",
-    "pied" : "Les lumières",
-    "actif" : true,
-    "url" : ''
-  },
-  {
-    "nom" : "Volets",
-    "icone" : "align-justify",
-    "couleur" : "btn-green",
-    "pied" : "Cde volets",
-    "actif" : true,
-    "url" : ''
-  },
-  {
-    "nom" : "Pièces",
-    "icone" : "tower",
-    "couleur" : "btn-yellow",
-    "pied" : "Liste des pièces",
-    "actif" : true,
-    "url" : ''
-  },
-  {
-    "nom" : "Scénario",
-    "icone" : "refresh",
-    "couleur" : "btn-blue",
-    "pied" : "Domoticz",
-    "actif" : true,
-    "url" : ''
-  },
-  {
-    "nom" : "domoticz",
-    "icone" : "compressed",
-    "couleur" : "btn-blue",
-    "pied" : "Le serveur",
-    "actif" : true,
-    "url" : ''
-  }];
-
-  console.log("tdb : => "+btnMenu);  
-  $scope.btnMenu = btnMenu;
-
-// gestion du click
- $scope.pipo = function(code){
-    console.log(' On a cliqué sur ===> '+code);
-    alert("Click via angular");
-  }
-
-
 });
-
-
-
-app.controller ('ctrltstJson',function($scope,$http){
+//-------------  LES MODULES  ---------
+app.controller ('ctrlModules',function($scope,$http){
   
   $scope.method = 'GET';
-  $scope.url = 'index.php/welcome/lirebouton/file/json';
+  $scope.url = 'http://192.168.0.63:8888/ihm/index.php/welcome/lireFileDomo/file/json';
 
   $scope.code = null;
   $scope.response = null;
 
   $http({method: $scope.method, url: $scope.url}).
       success(function(data, status) {
-        console.log(status);
-        console.log("autres bnt => "+data);
-        $scope.lesBoutons = data;
+        //console.log(data);
+        
+        $scope.lesmodules = data.result;
+        
     }).
     error(function(data, status) {
       $scope.data = data || "Request failed";
       $scope.status = status;
+   
   });
+
+
+});
+//-------------  LES PIECES  ---------
+app.controller ('ctrlRoom',function($scope,$http){
+  
+  $scope.method = 'GET';
+  $scope.url = 'lirepieces/file/json';
+
+  $scope.code = null;
+  $scope.response = null;
+
+  $http({method: $scope.method, url: $scope.url}).
+      success(function(data, status) {
+        console.log(data);
+      $scope.lespieces = data;
+
+      }).
+      error(function(data, status) {
+        $scope.data = data || "Request failed";
+        $scope.status = status;
+  });
+
+// gestion du click
+ $scope.pipo = function(code){
+    console.log(' On a cliqué sur ===> '+code+" - ");
+    
+}
+
 });
 
+//*******   Ajax : Btn ON|OFF  bouton module **********
+ 
+ /**
+ * Pb avec angular et Jquery => le click n' eétait pas intecepté ??
+ */  
+$(document).on("click", ".btn_appareil", function() { 
+
+        var idbtn = $(this).attr('idbtn');
+        var typebtn = $(this).attr('typebtn');
+          //alert('id btn = '+idbtn+" type cde"+typebtn);
+        $.ajax({
+          type: "GET",
+              url: "http://192.168.0.63:8888/ihm/index.php/modules/send_cde/"+idbtn+"/"+typebtn,
+          error:function(msg){
+           alert( "Error !: " + msg );
+          },
+          success:function(data){
+              //affiche le contenu du fichier dans le conteneur dédié
+              $('#retour').text(data);
+            //  socket.emit('messclient',{message : 'app = '+name+' -> '+typebtn}); // on envoi un mess au serveur IO
+          }
+        });
+});
 
 
 $(document).ready(function() {
 
    //:::::::           EVENT CHARGEMENT                :::::::
    
-      $('#tabMenu').hide();
+     // $('#tabMenu').hide();
    
      //------- CALENDRIER  ---------
    var madate = new Date();
@@ -134,11 +133,18 @@ $(document).ready(function() {
 
      //----    affiche la div Menu -----
     $('#btnMenu').click(function (){
-          $('#tabMeto').fadeOut('slow', function (){
+          $('#tabTdb').fadeOut('slow', function (){
                 $('#tabMenu').fadeIn();
             });
     });
    
+    //-----    affiche la div Tdb  ------
+   $('#btnTdb').click(function (){
+          $('#tabMenu').fadeOut('slow', function (){
+                $('#tabTdb').fadeIn();
+            });
+    });
+
    //-----    affiche la div Meteo  ------
    $('#btnMeteo').click(function (){
           $('#tabMenu').fadeOut('slow', function (){
@@ -161,51 +167,14 @@ $(document).ready(function() {
    
    
    //:::::::::::  Ajax  ::::::::::::
-   
-   $('#test2').click(function (){
-   
-         $.ajax ({
-         type : 'GET',
-         url: '../modules/montest',
-         dataType : 'json',
-         success  : function (data){
-            //console.log(data);
-            affiche(data);
-         }
-      });
-      
+   $("#testclick2").click(function(){
+      alert('click by jquery');
    });
+   
 
 });
 
 
-/**
- *  Affichage std
- **/
-function  affiche(data){
-    
-      $('#tplt').html(Mustache.render($('#tplt').html(),{block_data : data}));
- 
-};
-
-
-/**
- *  On fait la boucle dans js et non avec Mustache
- **/
-function  affiche1(data){
-    
-    console.log('ville :'+data.city.name);
-    console.dir(data.list);
-   
- for (var i in data.list ){
-       console.dir(data.list[i].temp.day+" ?? "+data.list[i].temp.dt);
-   
-   }
-};
-
-function testMustach(){
-   
-}
 
 //::::::  *********  LES TESTT  ::::::::::
     $('#meteox').click(function(){

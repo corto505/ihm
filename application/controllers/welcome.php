@@ -2,14 +2,23 @@
 
 class Welcome extends CI_Controller {
 
-	public function index()
+	public function index() //ok => Menu principales
 	{
 		$data['title']= 'Tableau de bord';
-		
 		$this->load->view('test_vw',$data);
 		//$this->meteo_api('caen','txt');
 	}
 	
+	/*
+	*   AFFICHE la liste des pieces
+	*/
+	public function affichepieces() 
+	{
+		$data['title']= 'Liste des pièces';
+		$this->load->view('pieces_vw',$data);
+		//$this->meteo_api('caen','txt');
+	}
+
 	/**
 	 *  Interogation API OpnMeteo
 	 **/
@@ -44,14 +53,12 @@ class Welcome extends CI_Controller {
 	}
 
 /**
-*
 * !!**!! ATTENTION ne pas mettre d'echo, sinon pollue le JSON  !!**!!
-*
 */
-	public function lirebouton($format='tab',$sortie='json'){
+	public function lirebouton($format='tab',$sortie='json'){ //ok
 
 		if($format=='tab'){
-
+			// lire à partir d'un tableau
 		}else{
 			$data = $this->p_lireFileJson ('les_boutons');
 		}
@@ -65,31 +72,79 @@ class Welcome extends CI_Controller {
 	}
 
 
+	/**
+	* !!**!! ATTENTION ne pas mettre d'echo, sinon pollue le JSON  !!**!!
+	*/
+	public function lirepieces($format='tab',$sortie='json'){ 
+
+		if($format=='tab'){
+			// lire à partir d'un tableau
+		}else{
+			$data = $this->p_lireFileJson ('pieces');
+		}
+
+		if($sortie=='json'){
+			echo $data; // encode => transforme en tab PHP
+		}else
+		{
+			echo $data;
+		}
+	}
+
+	/**
+	* !!**!! ATTENTION ne pas mettre d'echo, sinon pollue le JSON  !!**!!
+	*/
+	public function lireFileDomo($format='tab',$sortie='json'){
+
+		if($format=='tab'){
+			// lire à partir d'un tableau
+		}else{
+			$data = $this->p_lireFileJson ('domoticz_dump');
+		}
+
+		if($sortie=='json'){
+			echo $data; // encode => transforme en tab PHP
+		}else
+		{
+			echo $data;
+		}
+	}
+
+
+	/**
+	*  Recupere tous les modules de DOMMOTICZ dans un fichier JSON
+	*  Permet de lire les modules sans interroger Domoticz
+	*/
+	public function domo_dump(){ //OK
+		
+		$this->load->helper('file');
+		$this->load->helper('url');
+
+		$content = curl_json('http://192.168.0.66:8080/json.htm?type=devices&filter=switchlight&used=true&order=Name');
+		//var_dump($content);
+		write_file('./assets/json/domoticz_dump.json',$content);
+
+		redirect(base_url());
+        }
 
 	//:::::::::::   PRIVATE  :::::::::::::::
 	/*
 	* Description des bouton en dur
 	* pour rapidité
 	*/
-	private function p_boutonTab(){
+private function p_boutonTab(){
 
 		$mesBoutons = "";
 		return '';
 	}
 
-
-/**
-*  Lecture des fichiers dans le dossier Json
-*/
-	private function p_lireFileJson($nom){
+ private function p_lireFileJson($nom){ //ok
 
 		$pathFile = './assets/json/'.$nom.'.json';
-	
-		if (file_exists($pathFile)){
 		
-			$this->load->helper('file');
+		if (file_exists($pathFile)){
+			
 			$contenu = read_file ($pathFile);
-
 			return $contenu;
 		}else{
 		
