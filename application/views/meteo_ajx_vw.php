@@ -1,4 +1,15 @@
  <?php $this->load->view('include/entete'); ?>
+
+<!--  CALENDIER   -->
+<div class="row">
+    <div id="ladate">
+        <div id="bartop">
+            <span id="mois"></span>
+        </div> 
+        <div id="jour"></div>
+    </div> 
+</div> 
+
 <A href="#"  id="meteo">Test Ajax</A>`
 
 

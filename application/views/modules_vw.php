@@ -11,7 +11,7 @@
                     <span> {{item.Name}} </span>
                 </div>
                 <div class="content">
-                    <img src="../assets/images/lampe.jpg" />
+                    <img src="<?php echo img_url('lampe.jpg'); ?>" />
                     <div class="bouttons">
                         <button class="bnt btn-success btn-lg btn_appareil" type="button" typebtn="On" idbtn="{{item.idx}}">On</button><br><br>
                         <button class="bnt btn-danger btn-lg btn_appareil" type="button" typebtn="Off" idbtn="{{item.idx}}">Off</button>

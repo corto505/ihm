@@ -5,6 +5,7 @@ class Welcome extends CI_Controller {
 	public function index() //ok => Menu principales
 	{
 		$data['title']= 'Tableau de bord';
+		$data['erreur']="";
 		$this->load->view('test_vw',$data);
 		//$this->meteo_api('caen','txt');
 	}
@@ -22,10 +23,11 @@ class Welcome extends CI_Controller {
 	/**
 	 *  Interogation API OpnMeteo
 	 **/
-	public function meteo_api($ville,$sortie='txt')
+	public function meteo_api($ville='caen',$sortie='txt')
 	{
-		
-		$url = 'api.openweathermap.org/data/2.5/forecast/daily?q=caen,france&units=metric&mode=json'; // ou switchcmd=Off
+		$data['erreur']="";
+
+		$url = 'api.openweathermap.org/data/2.5/forecast/daily?q='.$ville.',france&units=metric&mode=json'; // ou switchcmd=Off
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -35,21 +37,40 @@ class Welcome extends CI_Controller {
 		curl_close($ch); 
 		$var_json = json_decode($c, true);
 		
-		if($sortie=='txt'){
-			echo '<pre>';
-			var_dump($var_json);
+		switch ($sortie) {
+			case 'debug':
+				echo '<pre>';
+				var_dump($var_json);
+			break;
+			
+			case 'json':
+				$data['meteo']=$var_json['list'];
+				$data['ville'] = $var_json['city']['name'];
+				$data['pressure'] = $var_json['list'][1]['pressure'];
+				$data['temp'] = $var_json['list'][1]['temp']['day'];
+				$data['humidity'] = $var_json['list'][1]['humidity'];
+				$data['date'] = date ('Y-m-d', $var_json['list']['1']['dt']);
+				
+				$this->load->view('welcome_vw',$data);
+
+			break;
+
+			case 'file':
+				if (!write_file('./assets/json/meteo_dump.json',$c))
+				{
+					$data['erreur']="Erreur ecriture file meteo_dump.json";
+					$this->load->view('error_vw',$data);
+				}else{
+					redirect(base_url());
+				}
+			break;
+
+			default:
+				$data['erreur']="Erreur ecriture file dump.json";
+				$this->load->view('error_vw',$data);
+			break;
 		}
-		else
-		{	
-		$data['meteo']=$var_json['list'];
-		$data['ville'] = $var_json['city']['name'];
-		$data['pressure'] = $var_json['list'][1]['pressure'];
-		$data['temp'] = $var_json['list'][1]['temp']['day'];
-		$data['humidity'] = $var_json['list'][1]['humidity'];
-		$data['date'] = date ('Y-m-d', $var_json['list']['1']['dt']);
 		
-		$this->load->view('welcome_vw',$data);
-		}
 	}
 
 /**
@@ -118,8 +139,9 @@ class Welcome extends CI_Controller {
 	*/
 	public function lireScenes($sortie='json'){		
 		
-		$url='http://192.168.0.66:8080/json.htm?type=scenes';
-		$data = curl_json($url); var_dump($data);
+		$url=prefrences("domoticz").'json.htm?type=scenes';
+		//var_dump($url);
+		$data = curl_json($url); //var_dump($data);die();
 
 		if($sortie=='json'){
 			echo $data; // encode => transforme en tab PHP
@@ -139,11 +161,17 @@ class Welcome extends CI_Controller {
 		$this->load->helper('file');
 		$this->load->helper('url');
 
-		$content = curl_json('http://192.168.0.66:8080/json.htm?type=devices&filter=switchlight&used=true&order=Name');
+		$content = curl_json( prefrences("domoticz").'json.htm?type=devices&filter=switchlight&used=true&order=Name');
 		//var_dump($content);
-		write_file('./assets/json/domoticz_dump.json',$content);
+		if (!write_file('./assets/json/domoticz_dump.json',$content))
+		{
+			$data['erreur']="Erreur ecriture file dump.json";
+			$this->load->view('error_vw',$data);
+		}else{
+			redirect(base_url());
+		}
 
-		redirect(base_url());
+	
         }
 
 	//:::::::::::   PRIVATE  :::::::::::::::

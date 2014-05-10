@@ -68,4 +68,20 @@ if(!function_exists('curl_json'))
 	}
 }
 
+// :::::::::   Parametres :::::
+if(!function_exists('prefrences'))
+{
+	function prefrences($choix){
+
+		switch ($choix) {
+			case 'domoticz':
+				return "http://192.168.0.66:8080/";
+				break;
+			
+			default:
+				return "!**! erreur de paramètres";
+				break;
+		}
+	}
+}
 ?>

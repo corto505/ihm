@@ -21,7 +21,10 @@ class Modules extends CI_Controller {
 	*  Les des # thermomètres
 	*/
 	public function scenes(){		
-			$this->liste_modules('Group');
+		$data['title']= 'Scènes Domoticz';
+		$data['leType']= 'Scènes';
+		$this->load->view('scenes_vw',$data);//
+		
      }
 
       /*
@@ -38,8 +41,8 @@ class Modules extends CI_Controller {
 	*/
 	public function send_cde($id,$cde){ 
 	
-		$url='http://192.168.0.66:8080/json.htm?type=command&param=switchlight&idx='.$id.'&switchcmd='.$cde.'&level=0';
-		//echo '<br> modules : URL = '.$url;
+		$url=prefrences("domoticz").'json.htm?type=command&param=switchlight&idx='.$id.'&switchcmd='.$cde.'&level=0';
+		echo '<br> modules : URL = '.$url;
 		$content = curl_json($url);
 		//var_dump($content);
 		///redirect(base_url());

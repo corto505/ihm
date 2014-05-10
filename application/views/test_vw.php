@@ -6,7 +6,7 @@
                 
             <div class="btn_std {{bouton.couleur}} button">
                 <div class="bandeau">
-                    <span> {{bouton.nom}} - {{bouton.type}}</span>
+                    <span> {{bouton.nom}} </span>
                 </div>
                 <div class="content">
                     <a href="{{bouton.url}}" class="btn" type="button">
@@ -14,13 +14,14 @@
                     </a>
                 </div>
                 <div class="footer">
-                     <span>{{bouton.pied}} - {{bouton.actif}}</span>
+                     <span>{{bouton.pied}} - {{bouton.actif}} - {{bouton.type}}</span>
                 </div>
             </div>
                 
          </div>
         
     </div>
+             <div class="bg-danger"><?php echo $erreur; ?></div>
 <!-- TABLEAU DE BORD -->
      <div class="row" id="tabMenu" ng-show="showActions" ng-swipe-right="showActions = false" >
 
@@ -28,7 +29,7 @@
                 
             <div class="btn_std {{menu.couleur}} button">
                 <div class="bandeau">
-                    <span> {{menu.nom}} - {{menu.type}} </span>
+                    <span> {{menu.nom}}</span>
                 </div>
                 <div class="content">
                     <a href="{{menu.url}}">
@@ -36,11 +37,12 @@
                     </a>
                 </div>
                 <div class="footer">
-                        <span>{{menu.pied}} - {{menu.actif}}</span>
+                        <span>{{menu.pied}} - {{menu.actif}} - {{menu.type}} </span>
                 </div>
             </div>
                 
          </div>
+
     </div>
 
 </div>

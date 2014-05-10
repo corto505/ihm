@@ -1,5 +1,6 @@
 //::::::::::::::::  ANGULAR  ::::::::::::
 var app = angular.module('domo',['ngAnimate','ngTouch']);
+var ip_serveur = "http://192.168.0.61:8888/";
 
 app.config(function($locationProvider){
   $locationProvider.html5Mode(true);
@@ -8,7 +9,7 @@ app.config(function($locationProvider){
 app.controller ('ctrlBtn',function($scope,$http){
   
   $scope.method = 'GET';
-  $scope.url = 'index.php/welcome/lirebouton/file/json';
+  $scope.url = ip_serveur+'ihm/index.php/welcome/lirebouton/file/json';
 
   $scope.code = null;
   $scope.response = null;
@@ -19,8 +20,8 @@ app.controller ('ctrlBtn',function($scope,$http){
         
         $scope.lesBoutonsTdb = data.tdb;
         $scope.lesBoutonsMenu = data.menu;
-        console.log("Menu bnt => "+$scope.lesBoutonsMenu);
-        console.log("Tdb bnt => "+$scope.lesBoutonsTdb);
+        //console.log("Menu bnt => "+$scope.lesBoutonsMenu);
+        //console.log("Tdb bnt => "+$scope.lesBoutonsTdb);
       }).
       error(function(data, status) {
         $scope.data = data || "Request failed";
@@ -31,44 +32,67 @@ app.controller ('ctrlBtn',function($scope,$http){
 //-------------  LES MODULES  ---------
 app.controller ('ctrlModules',function($scope,$http){
   
-  $scope.method = 'GET';
+    $scope.method = 'GET';
 
-  //console.log($scope.filterOptions);
+    //console.log($scope.filterOptions);
+    
+      $scope.url = ip_serveur+'ihm/index.php/welcome/lireFileDomo/file/json';
+    
+      //$scope.url = 'http://192.168.0.63:8888/ihm/index.php/welcome/lireScenes/json';
+
+    $scope.code = null;
+    $scope.response = null;
+
+    $http({method: $scope.method, url: $scope.url}).
+        success(function(data, status) {
+          //console.log(data);
+          
+          $scope.lesmodules = data.result;
+          
+      }).
+      error(function(data, status) {
+        $scope.data = data || "Request failed";
+        $scope.status = status;
+     
+    });
+
+});
+//-------------  LES SCENES  ---------
+app.controller ('ctrlScenes',function($scope,$http){
   
-    $scope.url = 'http://192.168.0.63:8888/ihm/index.php/welcome/lireFileDomo/file/json';
-  
-    //$scope.url = 'http://192.168.0.63:8888/ihm/index.php/welcome/lireScenes/json';
+    $scope.method = 'GET';
 
-  $scope.code = null;
-  $scope.response = null;
+    //console.log($scope.filterOptions);
+    
+    $scope.url = ip_serveur+'ihm/index.php/welcome/lireScenes/json';
+    $scope.response = null;
 
-  $http({method: $scope.method, url: $scope.url}).
-      success(function(data, status) {
-        //console.log(data);
-        
-        $scope.lesmodules = data.result;
-        
-    }).
-    error(function(data, status) {
-      $scope.data = data || "Request failed";
-      $scope.status = status;
-   
-  });
-
+    $http({method: $scope.method, url: $scope.url}).
+        success(function(data, status) {
+          console.log(data);
+          
+          $scope.lesscenes = data.result;
+          
+      }).
+      error(function(data, status) {
+        $scope.data = data || "Request failed";
+        $scope.status = status;
+     
+    });
 
 });
 //-------------  LES PIECES  ---------
 app.controller ('ctrlRoom',function($scope,$http){
   
   $scope.method = 'GET';
-  $scope.url = 'lirepieces/file/json';
+  $scope.url = ip_serveur+'ihm/index.php/welcome/lirepieces/file/json';
 
   $scope.code = null;
   $scope.response = null;
 
   $http({method: $scope.method, url: $scope.url}).
       success(function(data, status) {
-        console.log(data);
+       //console.log(data);
       $scope.lespieces = data;
 
       }).
@@ -85,8 +109,11 @@ app.controller ('ctrlRoom',function($scope,$http){
 
 });
 
+/*******************************************************
+*                JQUERY  - AJAX
+*
+*******************************************************/
 //*******   Ajax : Btn ON|OFF  bouton module **********
- 
  /**
  * Pb avec angular et Jquery => le click n' eétait pas intecepté ??
  */  
@@ -95,9 +122,10 @@ $(document).on("click", ".btn_appareil", function() {
         var idbtn = $(this).attr('idbtn');
         var typebtn = $(this).attr('typebtn');
           //alert('id btn = '+idbtn+" type cde"+typebtn);
+          
         $.ajax({
           type: "GET",
-              url: "http://192.168.0.63:8888/ihm/index.php/modules/send_cde/"+idbtn+"/"+typebtn,
+              url: ip_serveur+"ihm/index.php/modules/send_cde/"+idbtn+"/"+typebtn,
           error:function(msg){
            alert( "Error !: " + msg );
           },
@@ -178,7 +206,6 @@ $(document).ready(function() {
    
 
 });
-
 
 
 //::::::  *********  LES TESTT  ::::::::::
