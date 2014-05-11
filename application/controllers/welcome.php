@@ -40,7 +40,9 @@ class Welcome extends CI_Controller {
 		switch ($sortie) {
 			case 'debug':
 				echo '<pre>';
+				var_dump($c);
 				var_dump($var_json);
+				die();
 			break;
 			
 			case 'json':
@@ -73,6 +75,33 @@ class Welcome extends CI_Controller {
 		
 	}
 
+
+/**
+* !!**!! ATTENTION ne pas mettre d'echo, sinon pollue le JSON  !!**!!
+* permet de lire le fichier meteo mis en cache => pour demo
+*/
+	public function lireFileMeteo($sortie='json'){
+
+		
+		$data = $this->p_lireFileJson ('meteo_dump');
+		
+
+		switch ($sortie) {
+			case 'text':
+				$obj_json=json_decode($data);
+				var_dump($obj_json);
+				break;
+
+			case 'debug':
+				var_dump($data);die();
+				break;
+			default:
+				echo $data;
+				break;
+		}
+	}
+
+
 /**
 *  Lecture d'un fichier  JSON
 * !!**!! ATTENTION ne pas mettre d'echo, sinon pollue le JSON  !!**!!
@@ -85,11 +114,18 @@ class Welcome extends CI_Controller {
 			$data = $this->p_lireFileJson ('les_boutons');
 		}
 
-		if($sortie=='json'){
-			echo $data; // encode => transforme en tab PHP
-		}else
-		{
-			echo $data;
+		
+		switch ($sortie) {
+			case 'text':
+				echo( json_decode($data));
+				break;
+
+			case 'debug':
+				var_dump($data);die();
+				break;
+			default:
+				echo $data;
+				break;
 		}
 	}
 
@@ -106,11 +142,17 @@ class Welcome extends CI_Controller {
 			$data = $this->p_lireFileJson ('pieces');
 		}
 
-		if($sortie=='json'){
-			echo $data; // encode => transforme en tab PHP
-		}else
-		{
-			echo $data;
+		switch ($sortie) {
+			case 'text':
+				echo( json_decode($data));
+				break;
+
+			case 'debug':
+				var_dump($data);die();
+				break;
+			default:
+				echo $data;
+				break;
 		}
 	}
 
@@ -125,11 +167,17 @@ class Welcome extends CI_Controller {
 			$data = $this->p_lireFileJson ('domoticz_dump');
 		}
 
-		if($sortie=='json'){
-			echo $data; // encode => transforme en tab PHP
-		}else
-		{
-			echo $data;
+		switch ($sortie) {
+			case 'text':
+				echo( json_decode($data));
+				break;
+
+			case 'debug':
+				var_dump($data);die();
+				break;
+			default:
+				echo $data;
+				break;
 		}
 	}
 
@@ -143,11 +191,17 @@ class Welcome extends CI_Controller {
 		//var_dump($url);
 		$data = curl_json($url); //var_dump($data);die();
 
-		if($sortie=='json'){
-			echo $data; // encode => transforme en tab PHP
-		}else
-		{
-			echo $data;
+		switch ($sortie) {
+			case 'text':
+				echo( json_decode($data));
+				break;
+
+			case 'debug':
+				var_dump($data);die();
+				break;
+			default:
+				echo $data;
+				break;
 		}
      }
 

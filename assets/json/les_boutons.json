@@ -2,12 +2,12 @@
 	"tdb" : [
 		{
 			"type" : "tdb",
-			"nom" : "Météo",
+			"nom" : "Météo dump",
 			"icone" : "cloud",
 			"couleur" : "btn-info",
 			"pied" : "Api Météo",
-			"actif" : false,
-			"url" : ""
+			"actif" : true,
+			"url" : "index.php/welcome/api_meteo/caen/file"
 		},
 		{
 			"type" : "tdb",

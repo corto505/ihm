@@ -10,31 +10,32 @@
     </div> 
 </div> 
 
-<A href="#"  id="meteo">Test Ajax</A>`
-
-
-    <div id='tplt'>
-    {{#block_data}}
-    
- 
-    <div class="col-xs-12 col-md-3">        
-        
-     <div id="bandeau>">
-       Ville :  {{block_data.city.name}}
-       compteur : {{block_data.cnt}}
+<div class="content" ng-controller="ctrlMeteo">
+{{lameteo}}
+    <div class="row">
+      
+       <div class="col-xs-12 col-md-4" ng:repeat="item in lameteo" >
+                
+            <div class="inter">
+                <div class="bandeau">
+                    <span> {{item.Name}} </span>
+                </div>
+                <div class="content">
+                    <img src="<?php echo img_url('lampe.jpg'); ?>" />
+                    <div class="bouttons">
+                        <button class="bnt btn-success btn-lg btn_appareil" type="button" typebtn="On" idbtn="{{item.idx}}">On</button><br><br>
+                        <button class="bnt btn-danger btn-lg btn_appareil" type="button" typebtn="Off" idbtn="{{item.idx}}">Off</button>
+                    </div>
+                </div>
+                <div class="footer">
+                    <span>({{item.idx}}) - {{item.Type}} </span>
+                </div>
+            </div>
+                
+         </div>
+            
+       
     </div>
-    <div id="temp_list">
-        {{#list}}
-          dt : {{list.dt}}
-          {{#list.clouds}}
-            "=> " {{.}}
-           {{/list.clouds}}
-       {{/list}}
-    
-    </div>
-    
- </div>
- {{/block_data}} 
 </div>
     
 <?php $this->load->view('include/footer'); ?>

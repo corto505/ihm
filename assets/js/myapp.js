@@ -109,6 +109,30 @@ app.controller ('ctrlRoom',function($scope,$http){
 
 });
 
+//-------------  LA METEO  ---------
+app.controller ('ctrlMeteo',function($scope,$http){
+  
+  $scope.method = 'GET';
+  $scope.url = ip_serveur+'ihm/index.php/welcome/lireFileMeteo/json';
+
+  $scope.code = null;
+  $scope.response = null;
+
+  $http({method: $scope.method, url: $scope.url}).
+      success(function(data, status) {
+       //console.log(data);
+      $scope.lameteo = data;
+
+      }).
+      error(function(data, status) {
+        $scope.data = data || "Request failed";
+        $scope.status = status;
+  });
+
+});
+
+
+
 /*******************************************************
 *                JQUERY  - AJAX
 *
@@ -186,20 +210,7 @@ $(document).ready(function() {
     });
    
    
-   //:::::::::::  METEO API-OPEN  ::::::::::::::
- 
-       $('#meteo').click(function(){
-        jQuery.getJSON(
-        'http://api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=json&units=metric&cnt=8',
-        function(data,textStatus,jqXHR){
-             //console.dir(data);
-             affiche1(data);
-        });
-        
-    });
-   
-   
-   //:::::::::::  Ajax  ::::::::::::
+    //:::::::::::  Ajax  ::::::::::::
    $("#testclick2").click(function(){
       alert('click by jquery');
    });
@@ -209,26 +220,3 @@ $(document).ready(function() {
 
 
 //::::::  *********  LES TESTT  ::::::::::
-    $('#meteox').click(function(){
-        jQuery.getJSON(
-        'http://api.openweathermap.org/data/2.5/forecast/weather?q=London&mode=json&units=metric',
-        function(data,textStatus,jqXHR){
-           // var mjson = jQuery.parseJSON(data);
-            console.log("nom ville : "+data.city.name);
-            //$.each(data, function (i,item){
-            //    console.log(i);
-           // });
-            
-            var icone ='';
-            var jobj = data.list;
-            var mytxt='';
-            
-            for(var c in jobj){
-                icone = jobj[c].weather[0].icon+".png";
-                mytxt+='<img src="http://openweathermap.org/img/w/'+icone+'"/>';
-            }
-            console.log(mytxt);
-           $('#contenu').html(mytxt);
-        });
-        
-    });

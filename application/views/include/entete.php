@@ -41,7 +41,10 @@
     <button class="btn btn-green" id="btnMenu">
         <span class="glyphicon glyphicon-2x glyphicon-list-alt"> </span>
      </button>
-      <button class="btn btn-green>
+     <a href="index.php/modules/clock" class="btn btn-green ">
         <span class="glyphicon glyphicon-2x glyphicon-time"> </span>
-     </button>
+     </a>
+     <a href="index.php/modules/meteo" class="btn btn-green ">
+        <span class="glyphicon glyphicon-2x glyphicon-cloud"> </span>
+     </a>
 </div>
