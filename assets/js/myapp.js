@@ -1,6 +1,6 @@
 //::::::::::::::::  ANGULAR  ::::::::::::
 var app = angular.module('domo',['ngAnimate','ngTouch']);
-var ip_serveur = "http://192.168.0.61:8888/";
+var ip_serveur = "http://192.168.101.104:8888/";
 
 app.config(function($locationProvider){
   $locationProvider.html5Mode(true);
@@ -166,7 +166,7 @@ $(document).ready(function() {
 
    //:::::::           EVENT CHARGEMENT                :::::::
    
-     // $('#tabMenu').hide();
+      $('#tabMenu').hide();
    
      //------- CALENDRIER  ---------
    var madate = new Date();
@@ -190,22 +190,15 @@ $(document).ready(function() {
 
      //----    affiche la div Menu -----
     $('#btnMenu').click(function (){
-          $('#tabTdb').fadeOut('slow', function (){
+          $('#tabMeteo').fadeOut('slow', function (){
                 $('#tabMenu').fadeIn();
             });
     });
    
-    //-----    affiche la div Tdb  ------
-   $('#btnTdb').click(function (){
-          $('#tabMenu').fadeOut('slow', function (){
-                $('#tabTdb').fadeIn();
-            });
-    });
-
    //-----    affiche la div Meteo  ------
    $('#btnMeteo').click(function (){
           $('#tabMenu').fadeOut('slow', function (){
-                $('#tabMeto').fadeIn();
+                $('#tabMeteo').fadeIn();
             });
     });
    

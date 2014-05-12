@@ -21,7 +21,9 @@ body{
 	color : $couleur-police;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-
+a{
+		color : white;
+	}
 }
 
 .barre_menu a{
@@ -147,6 +149,9 @@ body{
 	background-color :$btn-orange;
 }
 
+/**
+* Boutons tableaux de bord
+*/
 .btn_std{
 	@include border-radius(8px);
 	border : solid #444 1px;
@@ -159,17 +164,48 @@ body{
 	}
 	.bandeau{
 		padding : 2px;
-		font-size : 0.95em;
-		
-		
+		font-size : 1.1em;
 	}
-	.footer{
-		
+	.footer{	
 		span{
 			font-size : 0.75em;
 		}
 	}
 	a{
 		color : white;
+	}
+}
+
+/**
+/*  LA meteo 
+*/
+.cadre_meteo{
+	@include border-radius(5px);
+	@include background-image(linear-gradient(left top, black, #777));
+	border : solid #333 1px;
+	color :white;
+	text-align : center;
+	font-size:0.9em;
+	margin-bottom : 20px;
+	padding : 5px;
+	.bandeau_date{
+		padding : 5px;
+		color : white;
+				line-height:2em;
+	}
+	.content{
+		.temp{
+			font-size: 1.2em;
+			@include background-image(linear-gradient( bottom, #333 #111));
+					line-height:2em;
+		}
+	}
+	.bandeau {
+		font-size:0.75em;
+	}
+	
+	.footer {
+		font-size:0.85em;
+		padding : 5px;
 	}
 }

@@ -27,7 +27,7 @@ class Welcome extends CI_Controller {
 	{
 		$data['erreur']="";
 
-		$url = 'api.openweathermap.org/data/2.5/forecast/daily?q='.$ville.',france&units=metric&mode=json'; // ou switchcmd=Off
+		$url = 'api.openweathermap.org/data/2.5/forecast/city?q='.$ville.',fr&units=metric&mode=json'; // ou switchcmd=Off
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -63,7 +63,7 @@ class Welcome extends CI_Controller {
 					$data['erreur']="Erreur ecriture file meteo_dump.json";
 					$this->load->view('error_vw',$data);
 				}else{
-					redirect(base_url());
+					redirect(base_url()+'/index.php/modules/meteo');
 				}
 			break;
 

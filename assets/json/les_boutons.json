@@ -2,15 +2,6 @@
 	"tdb" : [
 		{
 			"type" : "tdb",
-			"nom" : "Météo dump",
-			"icone" : "cloud",
-			"couleur" : "btn-info",
-			"pied" : "Api Météo",
-			"actif" : true,
-			"url" : "index.php/welcome/api_meteo/caen/file"
-		},
-		{
-			"type" : "tdb",
 			"nom" : "domoticz dump",
 			"icone" : "save",
 			"couleur" : "btn-success",
@@ -91,6 +82,15 @@
 		    "pied" : "Domoticz",
 		    "actif" : false,
 		    "url" :  ""
-	  }
+	  },
+	  {
+			"type" : "menu",
+			"nom" : "Météo",
+			"icone" : "cloud",
+			"couleur" : "btn-info",
+			"pied" : "Api Météo",
+			"actif" : true,
+			"url" : "index.php/modules/meteo"
+		}
 	]
 }

@@ -1,7 +1,7 @@
  <?php $this->load->view('include/entete'); ?>
 <div class="content" ng-controller="ctrlBtn">
 <!--   MENU PRINCIPALE -->
-    <div class="row" id="tabTdb" ng-show="!showActions" ng-swipe-left="showActions = true">
+    <div class="row" ng-show="!showActions" ng-swipe-left="showActions = true">
             <div class="col-xs-3 col-sm-4 col-md-3" ng:repeat="bouton in lesBoutonsMenu" >
                 
             <div class="btn_std {{bouton.couleur}} button">
@@ -23,7 +23,7 @@
     </div>
              <div class="bg-danger"><?php echo $erreur; ?></div>
 <!-- TABLEAU DE BORD -->
-     <div class="row" id="tabMenu" ng-show="showActions" ng-swipe-right="showActions = false" >
+     <div class="row" ng-show="showActions" ng-swipe-right="showActions = false" >
 
          <div class="col-xs-3 col-sm-4 col-md-3" ng:repeat="menu in lesBoutonsTdb">
                 

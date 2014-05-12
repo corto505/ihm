@@ -35,16 +35,15 @@
     <a href="/ihm" class="btn btn-green ">
         <span class="glyphicon glyphicon-2x glyphicon-home"> </span>
     </a>
-    <button class="btn btn-green" id="btnTdb">
-        <span class="glyphicon glyphicon-2x glyphicon-th-large"> </span>
-    </button>
-    <button class="btn btn-green" id="btnMenu">
-        <span class="glyphicon glyphicon-2x glyphicon-list-alt"> </span>
-     </button>
      <a href="index.php/modules/clock" class="btn btn-green ">
         <span class="glyphicon glyphicon-2x glyphicon-time"> </span>
      </a>
-     <a href="index.php/modules/meteo" class="btn btn-green ">
+
+     <button class="btn btn-green" id="btnMenu">
+        <span class="glyphicon glyphicon-2x glyphicon-list-alt"> </span>
+     </button>
+
+     <a href="" class="btn btn-green" id="btnMeteo">
         <span class="glyphicon glyphicon-2x glyphicon-cloud"> </span>
      </a>
 </div>
