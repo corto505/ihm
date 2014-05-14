@@ -10,9 +10,9 @@ $couleur-fond : #111;
 $couleur-police : #FFF;
 $btn-green : #1ABC9C;
 $btn-yellow: #F1C40F;
-$btn-blue : #3498DB;
+$btn-blue : #5BC0DE;//#3498DB;
 $btn-purple : #884DA7;
-$btn-orange : orange;
+$btn-orange : #FF8000;
 $font-stack: Lucida Grande, sans-sherif;
 
 body{
@@ -134,19 +134,19 @@ a{
 }
 
 .btn-green{
-	background-color : $btn-green;
+	@include background-image(linear-gradient(top , #ABE6DB, $btn-green));
 }
 .btn-yellow{
-	background-color : $btn-yellow;
+		@include background-image(linear-gradient(top , #F9E7A0, $btn-yellow));
 }
 .btn-blue{
-	background-color :$btn-blue;
+	@include background-image(linear-gradient(top , #A4DCEC, $btn-blue));
 }
 .btn-purple{
-	background-color :$btn-purple;
+	@include background-image(linear-gradient(top , #BF9FCF, $btn-purple));
 }
-.btn-orange{
-	background-color :$btn-orange;
+.btn-orange {
+	@include background-image(linear-gradient(top , #FFC68D, $btn-orange ));
 }
 
 /**

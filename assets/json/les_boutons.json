@@ -4,7 +4,7 @@
 			"type" : "tdb",
 			"nom" : "domoticz dump",
 			"icone" : "save",
-			"couleur" : "btn-success",
+			"couleur" : "btn-yellow",
 			"pied" : "Les modules en json",
 			"actif" : true,
 			"url" : "index.php/welcome/domo_dump"
@@ -13,7 +13,7 @@
 			"type" : "tdb",
 			"nom" : "Domoticz",
 			"icone" : "edit",
-			"couleur" : "btn-warning",
+			"couleur" : "btn-orange",
 			"pied" : "Le serveur",
 			"actif" : false,
 			"url" : "http://192.168.0.66:8080"
@@ -87,7 +87,7 @@
 			"type" : "menu",
 			"nom" : "Météo",
 			"icone" : "cloud",
-			"couleur" : "btn-info",
+			"couleur" : "btn-blue",
 			"pied" : "Api Météo",
 			"actif" : true,
 			"url" : "index.php/modules/meteo"

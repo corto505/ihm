@@ -188,27 +188,47 @@ body a {
 
 /* line 136, ../sass/mystyle.scss */
 .btn-green {
-  background-color: #1abc9c;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #abe6db), color-stop(100%, #1abc9c));
+  background-image: -webkit-linear-gradient(top, #abe6db, #1abc9c);
+  background-image: -moz-linear-gradient(top, #abe6db, #1abc9c);
+  background-image: -o-linear-gradient(top, #abe6db, #1abc9c);
+  background-image: linear-gradient(top, #abe6db, #1abc9c);
 }
 
 /* line 139, ../sass/mystyle.scss */
 .btn-yellow {
-  background-color: #f1c40f;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9e7a0), color-stop(100%, #f1c40f));
+  background-image: -webkit-linear-gradient(top, #f9e7a0, #f1c40f);
+  background-image: -moz-linear-gradient(top, #f9e7a0, #f1c40f);
+  background-image: -o-linear-gradient(top, #f9e7a0, #f1c40f);
+  background-image: linear-gradient(top, #f9e7a0, #f1c40f);
 }
 
 /* line 142, ../sass/mystyle.scss */
 .btn-blue {
-  background-color: #3498db;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a4dcec), color-stop(100%, #5bc0de));
+  background-image: -webkit-linear-gradient(top, #a4dcec, #5bc0de);
+  background-image: -moz-linear-gradient(top, #a4dcec, #5bc0de);
+  background-image: -o-linear-gradient(top, #a4dcec, #5bc0de);
+  background-image: linear-gradient(top, #a4dcec, #5bc0de);
 }
 
 /* line 145, ../sass/mystyle.scss */
 .btn-purple {
-  background-color: #884da7;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bf9fcf), color-stop(100%, #884da7));
+  background-image: -webkit-linear-gradient(top, #bf9fcf, #884da7);
+  background-image: -moz-linear-gradient(top, #bf9fcf, #884da7);
+  background-image: -o-linear-gradient(top, #bf9fcf, #884da7);
+  background-image: linear-gradient(top, #bf9fcf, #884da7);
 }
 
 /* line 148, ../sass/mystyle.scss */
 .btn-orange {
-  background-color: orange;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffc68d), color-stop(100%, #ff8000));
+  background-image: -webkit-linear-gradient(top, #ffc68d, #ff8000);
+  background-image: -moz-linear-gradient(top, #ffc68d, #ff8000);
+  background-image: -o-linear-gradient(top, #ffc68d, #ff8000);
+  background-image: linear-gradient(top, #ffc68d, #ff8000);
 }
 
 /**
