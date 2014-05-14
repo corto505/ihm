@@ -6,6 +6,7 @@
         <div id="bartop">
             <span id="mois"></span>
         </div> 
+        <br>
         <div id="jour"></div>
     </div> 
 </div> 

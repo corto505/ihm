@@ -6,6 +6,7 @@ class Welcome extends CI_Controller {
 	{
 		$data['title']= 'Tableau de bord';
 		$data['erreur']="";
+		$data['leType']= 'accueil';
 		$this->load->view('test_vw',$data);
 		//$this->meteo_api('caen','txt');
 	}
@@ -16,6 +17,7 @@ class Welcome extends CI_Controller {
 	public function affichepieces() 
 	{
 		$data['title']= 'Liste des pièces';
+		$data['leType']= 'pièces';
 		$this->load->view('pieces_vw',$data);
 		//$this->meteo_api('caen','txt');
 	}
@@ -26,6 +28,7 @@ class Welcome extends CI_Controller {
 	public function meteo_api($ville='caen',$sortie='txt')
 	{
 		$data['erreur']="";
+		$data['leType']= '';
 
 		$url = 'api.openweathermap.org/data/2.5/forecast/city?q='.$ville.',fr&units=metric&mode=json'; // ou switchcmd=Off
 		$ch = curl_init($url);
@@ -37,6 +40,7 @@ class Welcome extends CI_Controller {
 		curl_close($ch); 
 		$var_json = json_decode($c, true);
 		
+		//*********  Aiguillage des sorties  ***********
 		switch ($sortie) {
 			case 'debug':
 				echo '<pre>';
@@ -82,10 +86,9 @@ class Welcome extends CI_Controller {
 */
 	public function lireFileMeteo($sortie='json'){
 
-		
 		$data = $this->p_lireFileJson ('meteo_dump');
 		
-
+		//*********  Aiguillage des sorties  ***********
 		switch ($sortie) {
 			case 'text':
 				$obj_json=json_decode($data);
@@ -114,7 +117,7 @@ class Welcome extends CI_Controller {
 			$data = $this->p_lireFileJson ('les_boutons');
 		}
 
-		
+		//*********  Aiguillage des sorties  ***********
 		switch ($sortie) {
 			case 'text':
 				echo( json_decode($data));
@@ -212,6 +215,7 @@ class Welcome extends CI_Controller {
 	*/
 	public function domo_dump(){ //OK
 		
+		$data['leType']= '';
 		$this->load->helper('file');
 		$this->load->helper('url');
 

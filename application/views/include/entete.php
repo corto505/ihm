@@ -31,14 +31,15 @@
 </div>
 
 <div class="row barre_menu">
-    <span>  </span>
+    <span> <?php echo $leType; ?> </span>
     <a href="/ihm" class="btn btn-green ">
         <span class="glyphicon glyphicon-2x glyphicon-home"> </span>
     </a>
      <a href="index.php/modules/clock" class="btn btn-green ">
         <span class="glyphicon glyphicon-2x glyphicon-time"> </span>
      </a>
-
+<?php if ($leType=="Météo") {
+    echo '
      <button class="btn btn-green" id="btnMenu">
         <span class="glyphicon glyphicon-2x glyphicon-list-alt"> </span>
      </button>
@@ -46,4 +47,6 @@
      <a href="" class="btn btn-green" id="btnMeteo">
         <span class="glyphicon glyphicon-2x glyphicon-cloud"> </span>
      </a>
+     ';
+ }?>
 </div>

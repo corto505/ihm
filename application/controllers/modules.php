@@ -68,7 +68,9 @@ class Modules extends CI_Controller {
 		//$contenu = read_file ('./assets/json/exple_meteo.json');
 		
 		//echo $contenu;
-		$this->load->view('meteo_ajx_vw');
+		$data['title']= 'Quel temps fera t-il ?';
+		$data['leType']= 'Météo';
+		$this->load->view('meteo_ajx_vw',$data);
 		
         }
         
