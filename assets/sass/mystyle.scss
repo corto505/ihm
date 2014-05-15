@@ -7,7 +7,7 @@
 @import 'compass';
 
 $couleur-fond : white;
-$couleur-police : #FFF;
+$couleur-police : #5A5E6B;
 $btn-green : #1ABC9C;
 $btn-yellow: #F1C40F;
 $btn-blue : #5BC0DE;//#3498DB;
@@ -16,7 +16,6 @@ $btn-orange : #FF8000;
 $font-stack: Lucida Grande, sans-sherif;
 
 body{
-	background-color:$couleur-fond;
 	font : 2em $font-stack;
 	color : $couleur-police;
 	-moz-box-sizing: border-box;
@@ -24,6 +23,13 @@ body{
 a{
 		color : white;
 	}
+}
+
+.body_black{
+		background-color:black;
+}
+.body_white {
+		background-color: white;
 }
 
 .barre_menu a{
@@ -35,6 +41,7 @@ a{
 
 .content{
 	padding : 15px;	
+	color : white;
 }
 
 .glyphicon-2x{
@@ -104,8 +111,29 @@ a{
     }
   }
   
- 
-/*** description des modules */
+ /*************************
+*   Couleurs des boutons
+*************************/
+.btn-green{
+	@include background-image(linear-gradient(top , #ABE6DB, $btn-green));
+}
+.btn-yellow{
+		@include background-image(linear-gradient(top , #F9E7A0, $btn-yellow));
+}
+.btn-blue{
+	@include background-image(linear-gradient(top , #A4DCEC, $btn-blue));
+}
+.btn-purple{
+	@include background-image(linear-gradient(top , #BF9FCF, $btn-purple));
+}
+.btn-orange {
+	@include background-image(linear-gradient(top , #FFC68D, $btn-orange ));
+}
+
+
+/*************************
+ * description des modules 
+ **************************/
 .inter{
 	@include border-radius(5px);
 	@include background-image(linear-gradient(left top, black, #777));
@@ -136,25 +164,46 @@ a{
 	}
 }
 
-.btn-green{
-	@include background-image(linear-gradient(top , #ABE6DB, $btn-green));
-}
-.btn-yellow{
-		@include background-image(linear-gradient(top , #F9E7A0, $btn-yellow));
-}
-.btn-blue{
-	@include background-image(linear-gradient(top , #A4DCEC, $btn-blue));
-}
-.btn-purple{
-	@include background-image(linear-gradient(top , #BF9FCF, $btn-purple));
-}
-.btn-orange {
-	@include background-image(linear-gradient(top , #FFC68D, $btn-orange ));
-}
 
-/**
+.thermo{
+	@include border-radius(5px);
+	@include background-image(linear-gradient(left top, black, #777));
+	 color : white;
+	width : 300px;
+	margin-bottom : 20px;
+	
+	.bandeau{
+		padding : 2px;
+		font-size : 0.95em;
+		text-align : center;
+		line-height : 2.2em;
+	}
+	.content{
+		height : 120px;
+		padding-top : 10px;
+		.image{
+			float : left;
+			width : 110px;
+		}
+
+	}
+	.bouttons{
+		float : right;
+		margin-right : 15px;
+		.degre{
+			font-size : 2.0em;
+			font-height : bold;
+		}
+	}
+	.footer{
+		span{
+			font-size : 0.8em;
+		}
+	}
+}
+/*************************
 * Boutons tableaux de bord
-*/
+/**************************/
 .btn_std{
 	@include border-radius(8px);
 	 @include box-shadow(#6E6E6E 2px 2px 8px);

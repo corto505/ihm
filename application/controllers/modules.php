@@ -57,7 +57,11 @@ class Modules extends CI_Controller {
 
 		$data['title']= 'Modules Domoticz';
 		$data['leType']= $type;
-		$this->load->view('modules_vw',$data);//
+		if($type!="Temp")
+			$this->load->view('modules_vw',$data);//
+		else
+			$this->load->view('temp_vw',$data);//
+
 		
         }
         
