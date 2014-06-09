@@ -1,6 +1,7 @@
 //::::::::::::::::  ANGULAR  ::::::::::::
 var app = angular.module('domo',['ngAnimate','ngTouch']);
-var ip_serveur = "http://192.168.101.104:8888/";
+var ip_serveur = "http://192.168.0.70/";
+var ip_nodejs1 = "http://192.168.0.70:3000/";
 
 app.config(function($locationProvider){
   $locationProvider.html5Mode(true);
@@ -132,6 +133,31 @@ app.controller ('ctrlMeteo',function($scope,$http){
 });
 
 
+//-------------  LES STATES  ---------
+app.controller ('ctrlStates',function($scope,$http){
+  
+  $scope.send_cde_stat=function(code){
+    
+     $scope.method = 'GET';
+    $scope.url = ip_nodejs1+'vnstat/'+code;
+
+    $scope.response = null;
+
+    $http({method: $scope.method, url: $scope.url}).
+      success(function(data, status) {
+       console.log(data);
+      $scope.lameteo = data;
+
+      }).
+      error(function(data, status) {
+        $scope.data = data || "Request failed";
+        $scope.status = status;
+        
+  });
+
+  } 
+
+});
 
 /*******************************************************
 *                JQUERY  - AJAX

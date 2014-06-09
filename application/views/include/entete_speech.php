@@ -12,11 +12,8 @@
       <link rel="stylesheet" href="<?php echo css_url('mystyle') ?>">
 
     <script type="text/javascript" src="<?php echo js_url('jquery_1.10.min') ?>"></script>
-    <script type="text/javascript" src="<?php echo js_url('angular.min') ?>"></script>
-     <script type="text/javascript" src="<?php echo js_url('angular-touch.min') ?>"></script>
-      <script type="text/javascript" src="<?php echo js_url('angular-animate.min') ?>"></script>
-    <script type="text/javascript" src="<?php echo js_url('myapp') ?>"></script>
- 
+    <script type="text/javascript" src="<?php echo js_url('speech') ?>"></script>
+  
 </head>
 
 <body ng-app="domo">
@@ -35,12 +32,10 @@
     <a href="/ihm" class="btn btn-green ">
         <span class="glyphicon glyphicon-2x glyphicon-home"> </span>
     </a>
-     <a href="<?php echo base_url() ;?>index.php/modules/clock" class="btn btn-green ">
+     <a href="index.php/modules/clock" class="btn btn-green ">
         <span class="glyphicon glyphicon-2x glyphicon-time"> </span>
      </a>
-     <a href="<?php echo base_url() ;?>index.php/welcome/speech" class="btn btn-green ">
-        <span class="glyphicon glyphicon-2x glyphicon-volume-down"> </span>
-     </a>
+
 <?php if ($leType=="Météo") {
     echo '
      <button class="btn btn-green" id="btnMenu">
@@ -52,7 +47,4 @@
      </a>
      ';
  }?>
- <a href="<?php echo base_url() ;?>index.php/tablette" class="btn btn-green ">
-        <span class="glyphicon glyphicon-2x glyphicon-home"> </span>
-    </a>
 </div>

@@ -17,6 +17,24 @@
 			"pied" : "Le serveur",
 			"actif" : false,
 			"url" : "http://192.168.0.66:8080"
+		},
+		{
+			"type" : "tdb",
+			"nom" : "States",
+			"icone" : "edit",
+			"couleur" : "btn-blue",
+			"pied" : "Statistiques rbi",
+			"actif" : true,
+			"url" : "index.php/welcome/p_states"
+		},
+		{
+			"type" : "tdb",
+			"nom" : "Monitoring",
+			"icone" : "edit",
+			"couleur" : "btn-orange",
+			"pied" : "Seveur RbiMonitor",
+			"actif" : true,
+			"url" : "http://192.168.0.70:8888/status.html"
 		}
 	],
 	"menu" : [

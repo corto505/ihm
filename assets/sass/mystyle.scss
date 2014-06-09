@@ -6,7 +6,7 @@
 
 @import 'compass';
 
-$couleur-fond : white;
+$couleur-fond : black;
 $couleur-police : #5A5E6B;
 $btn-green : #1ABC9C;
 $btn-yellow: #F1C40F;
@@ -16,6 +16,7 @@ $btn-orange : #FF8000;
 $font-stack: Lucida Grande, sans-sherif;
 
 body{
+background-color:black;
 	font : 2em $font-stack;
 	color : $couleur-police;
 	-moz-box-sizing: border-box;
@@ -82,6 +83,10 @@ a{
 	@include border-radius(5px)
 	}
 }
+
+.btn-group{
+	padding-left : 1Opx;
+}
 /**   Calendrier ***/
   #ladate{
     margin: 15px auto 25px auto;
@@ -137,7 +142,7 @@ a{
 .inter{
 	@include border-radius(5px);
 	@include background-image(linear-gradient(left top, black, #777));
-	border : solid #666 1px;
+	border : solid #AAA 1px;
 	@include box-shadow(white);
 	width : 330px;
 	margin-bottom : 20px;

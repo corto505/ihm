@@ -4,9 +4,23 @@ class Welcome extends CI_Controller {
 
 	public function index() //ok => Menu principales
 	{
-		$data['title']= 'Tableau de bord';
-		$data['erreur']="";
-		$data['leType']= 'accueil';
+		/**
+		* 04/06/2014 : chgt de strategie, les btn sont affiché via phh et non angulars
+		* Pb de performance sut tablette 7"
+		*/
+		$this->load->model('File_json_md');
+		$data = $this->File_json_md->p_lireFileJson ('les_boutons');
+		$montab = json_decode($data,true);
+		//var_dump($montab['menu']);die();
+		$data = array ('title' =>'Tableau de bord',
+				'leType' => 'accueil',
+				'erreur' => '',
+				'tdb' => array(),
+				'menu'=> array()
+				);
+
+		$data['tdb'] = $montab['tdb'];
+		$data['menu'] = $montab['menu'];
 		$this->load->view('test_vw',$data);
 		//$this->meteo_api('caen','txt');
 	}
@@ -19,6 +33,17 @@ class Welcome extends CI_Controller {
 		$data['title']= 'Liste des pièces';
 		$data['leType']= 'pièces';
 		$this->load->view('pieces_vw',$data);
+		//$this->meteo_api('caen','txt');
+	}
+
+	/*
+	*   AFFICHE La page pour google API speech
+	*/
+	public function speech() 
+	{
+		$data['title']= 'Sunthèse vocale';
+		$data['leType']= 'voix';
+		$this->load->view('speech_vw',$data);
 		//$this->meteo_api('caen','txt');
 	}
 
@@ -86,7 +111,8 @@ class Welcome extends CI_Controller {
 */
 	public function lireFileMeteo($sortie='json'){
 
-		$data = $this->p_lireFileJson ('meteo_dump');
+		$this->load->model('File_json_md');
+		$data = $this->File_json_md->p_lireFileJson ('meteo_dump');
 		
 		//*********  Aiguillage des sorties  ***********
 		switch ($sortie) {
@@ -114,9 +140,10 @@ class Welcome extends CI_Controller {
 		if($format=='tab'){
 			// lire à partir d'un tableau
 		}else{
-			$data = $this->p_lireFileJson ('les_boutons');
+			$this->load->model('File_json_md');
+			$data = $this->File_json_md->p_lireFileJson ('les_boutons');
 		}
-
+		
 		//*********  Aiguillage des sorties  ***********
 		switch ($sortie) {
 			case 'text':
@@ -142,7 +169,8 @@ class Welcome extends CI_Controller {
 		if($format=='tab'){
 			// lire à partir d'un tableau
 		}else{
-			$data = $this->p_lireFileJson ('pieces');
+			$this->load->model('File_json_md');
+			$data = $this->File_json_md->p_lireFileJson ('pieces');
 		}
 
 		switch ($sortie) {
@@ -167,7 +195,8 @@ class Welcome extends CI_Controller {
 		if($format=='tab'){
 			// lire à partir d'un tableau
 		}else{
-			$data = $this->p_lireFileJson ('domoticz_dump');
+			$this->load->model('File_json_md');
+			$data = $this->File_json_md->p_lireFileJson ('domoticz_dump');
 		}
 
 		switch ($sortie) {
@@ -203,7 +232,7 @@ class Welcome extends CI_Controller {
 				var_dump($data);die();
 				break;
 			default:
-				echo $data;
+				echo '<pre>'.$data.'</pre>';
 				break;
 		}
      }
@@ -232,6 +261,17 @@ class Welcome extends CI_Controller {
 	
         }
 
+      /***
+     *  Statistiques RBI - interroge le servur nodeJS du RBI via Angular
+     ***/
+     public function p_states(){
+     	$data['title']= 'Statistiques';
+		$data['leType']= '';
+		$this->load->view('states_vw',$data);
+
+     }
+
+
 	//:::::::::::   PRIVATE  :::::::::::::::
 	/*
 	* Description des bouton en dur
@@ -243,17 +283,5 @@ private function p_boutonTab(){
 		return '';
 	}
 
- private function p_lireFileJson($nom){ //ok
-
-		$pathFile = './assets/json/'.$nom.'.json';
-		
-		if (file_exists($pathFile)){
-			
-			$contenu = read_file ($pathFile);
-			return $contenu;
-		}else{
-		
-			return false;
-		}
-	}
+ 
 }

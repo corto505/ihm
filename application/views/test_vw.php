@@ -9,7 +9,7 @@
                     <span> {{bouton.nom}} </span>
                 </div>
                 <div class="content">
-                    <a href="{{bouton.url}}" class="btn" type="button">
+                    <a href="<?php echo base_url() ;?>{{bouton.url}}" class="btn" type="button">
                         <span class="glyphicon glyphicon-2x glyphicon-{{bouton.icone}}"></span>
                     </a>
                 </div>
@@ -32,7 +32,7 @@
                     <span> {{menu.nom}}</span>
                 </div>
                 <div class="content">
-                    <a href="{{menu.url}}">
+                    <a href="<?php echo base_url() ;?>{{menu.url}}">
                         <span class="glyphicon glyphicon-2x glyphicon-{{menu.icone}}"></span>
                     </a>
                 </div>
