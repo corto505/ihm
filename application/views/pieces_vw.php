@@ -1,5 +1,4 @@
  <?php $this->load->view('include/entete'); ?>
- <div class="row text-center"><?php echo $title ?></div>
 <div class="content" ng-controller="ctrlRoom">
     <div class="row">
             <div class="col-xs-3 col-sm-4 col-md-3" ng:repeat="piece in lespieces" >
@@ -10,7 +9,7 @@
                 </div>
                 <div class="content">
                     <a href="{{piece.url}}">
-                       <span class="glyphicon glyphicon-2x glyphicon-{{piece.icone}}"></span>
+                       <span class="glyphicon glyphicon-3x glyphicon-{{piece.icone}}"></span>
                     </a>
                 </div>
                 <div class="footer">
