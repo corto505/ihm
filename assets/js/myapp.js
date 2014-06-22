@@ -1,6 +1,6 @@
 //::::::::::::::::  ANGULAR  ::::::::::::
 var app = angular.module('domo',['ngAnimate','ngTouch']);
-var ip_serveur = "http://192.168.0.69:8888/";
+var ip_serveur = "http://192.168.0.70/";
 var ip_nodejs1 = "http://192.168.0.70:3000/";
 
 app.config(function($locationProvider){
