@@ -61,8 +61,6 @@ class Modules extends CI_Controller {
 			$this->load->view('modules_vw',$data);//
 		else
 			$this->load->view('temp_vw',$data);//
-
-		
         }
         
 

@@ -2,29 +2,46 @@
 
 class Welcome extends CI_Controller {
 
-	public function index() //ok => Menu principales
-	{
-		/**
-		* 04/06/2014 : chgt de strategie, les btn sont affiché via phh et non angulars
-		* Pb de performance sut tablette 7"
-		*/
+	/**
+	* Ecran pour afficher les boutons rapde, pour un acces rapide
+	* ce fait par une lecture de fichier Json
+	*/
+	public function index(){
+
 		$this->load->model('File_json_md');
-		$data = $this->File_json_md->p_lireFileJson ('les_boutons');
+		$data = $this->File_json_md->p_lireFileJson ('boutons_rapide');
+		//var_dump($data);die();
 		$montab = json_decode($data,true);
-		//var_dump($montab['menu']);die();
-		$data = array ('title' =>'Tableau de bord',
+		$data = array ('title' =>'Menu tablette',
 				'leType' => 'accueil',
 				'erreur' => '',
 				'tdb' => array(),
 				'menu'=> array()
 				);
 
-		$data['tdb'] = $montab['tdb'];
-		$data['menu'] = $montab['menu'];
-		$this->load->view('test_vw',$data);
-		//$this->meteo_api('caen','txt');
+		$data['btn_tdb'] = $montab['btn'];
+
+		$this->load->view('btn_rapide_vw',$data);
 	}
-	
+
+
+	public function menu() //ok => Menu principales voir controller tablette 2n solution
+	{
+		/**
+		* 04/06/2014 :voir Ctrl Tablette chgt de strategie, les btn sont affiché via phh et non angulars
+		* Pb de performance sut tablette 7"
+		*/
+		
+		$data = array ('title' =>'Menu principale',
+				'leType' => 'accueil',
+				'erreur' => '',
+				'tdb' => array(),
+				'menu'=> array()
+				);
+
+		$this->load->view('test_vw',$data);
+	}
+
 	/*
 	*   AFFICHE la liste des pieces
 	*/
@@ -216,6 +233,7 @@ class Welcome extends CI_Controller {
 
 	/*
 	*  Recupere les infoDomoticz via requete HTTP
+	*  Angular - 
 	*/
 	public function lireScenes($sortie='json'){		
 		
@@ -224,8 +242,8 @@ class Welcome extends CI_Controller {
 		$data = curl_json($url); //var_dump($data);die();
 
 		switch ($sortie) {
-			case 'text':
-				echo( json_decode($data));
+			case 'json':
+				echo $data;
 				break;
 
 			case 'debug':

@@ -1,6 +1,6 @@
 //::::::::::::::::  ANGULAR  ::::::::::::
 var app = angular.module('domo',['ngAnimate','ngTouch']);
-var ip_serveur = "http://192.168.0.70/";
+var ip_serveur = "http://192.168.0.69:8888/";
 var ip_nodejs1 = "http://192.168.0.70:3000/";
 
 app.config(function($locationProvider){
@@ -46,7 +46,7 @@ app.controller ('ctrlModules',function($scope,$http){
 
     $http({method: $scope.method, url: $scope.url}).
         success(function(data, status) {
-          //console.log(data);
+          //console.log(data.result);
           
           $scope.lesmodules = data.result;
           
@@ -70,7 +70,7 @@ app.controller ('ctrlScenes',function($scope,$http){
 
     $http({method: $scope.method, url: $scope.url}).
         success(function(data, status) {
-          console.log(data);
+         console.log(data);
           
           $scope.lesscenes = data.result;
           

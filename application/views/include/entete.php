@@ -33,12 +33,9 @@
 <div class="row barre_menu">
     <span> <?php echo $leType; ?> </span>
     <a href="/ihm" class="btn btn-green ">
-        <span class="glyphicon glyphicon-2x glyphicon-home"> </span>
-    </a>
-     <a href="<?php echo base_url() ;?>index.php/modules/clock" class="btn btn-green ">
         <span class="glyphicon glyphicon-2x glyphicon-time"> </span>
-     </a>
-     <a href="<?php echo base_url() ;?>index.php/welcome/speech" class="btn btn-green ">
+    </a>
+    <a href="<?php echo base_url() ;?>index.php/welcome/speech" class="btn btn-green ">
         <span class="glyphicon glyphicon-2x glyphicon-volume-down"> </span>
      </a>
 <?php if ($leType=="Météo") {

@@ -47,6 +47,10 @@ body a {
   font-size: 40px;
 }
 
+.glyphicon-3x {
+  font-size: 55px;
+}
+
 /* line 52, ../sass/mystyle.scss */
 #simple-menu {
   margin-left: 15px;
@@ -240,7 +244,7 @@ body a {
   line-height: 2.2em;
 }
 /* line 160, ../sass/mystyle.scss */
-.inter .bouttons {
+.bouttons {
   float: right;
   margin-right: 10px;
 }
@@ -324,6 +328,10 @@ body a {
 /* line 219, ../sass/mystyle.scss */
 .btn_std .content {
   padding-top: 10px;
+}
+.btn_std .content_std {
+  height: 155px;
+  padding-top: 30px;
 }
 /* line 223, ../sass/mystyle.scss */
 .btn_std .bandeau {

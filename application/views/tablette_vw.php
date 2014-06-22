@@ -3,7 +3,7 @@
 <!--   MENU PRINCIPALE -->
     <div class="row" ng-show="!showActions" ng-swipe-left="showActions = true">
 
-         <?php foreach ($menu as $key => $value) { ?>
+         <?php foreach ($menu as $key => $value) {  if ($value['actif']==1 ) {?>
                 
             <div class="col-xs-3 col-sm-4 col-md-3">
             
@@ -22,7 +22,7 @@
             </div>
                 
          </div>
-        <?php } ?>
+        <?php }} ?>
         
     </div>
 

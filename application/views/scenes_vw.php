@@ -2,7 +2,6 @@
  <h3 class="text-center"> <?php echo $leType ;?></h3>
 <div class="content" ng-controller="ctrlScenes">
     <div class="row">
-    	
     	 <div class="col-xs-12 col-md-4" ng:repeat="item in lesscenes" >
                 
             <div class="inter">

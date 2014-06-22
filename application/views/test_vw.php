@@ -2,7 +2,7 @@
 <div class="content" ng-controller="ctrlBtn">
 <!--   MENU PRINCIPALE -->
     <div class="row" ng-show="!showActions" ng-swipe-left="showActions = true">
-            <div class="col-xs-3 col-sm-4 col-md-3" ng:repeat="bouton in lesBoutonsMenu" >
+            <div class="col-xs-3 col-sm-4 col-md-3" ng:repeat="bouton in lesBoutonsMenu  | filter :{ actif : true }" >
                 
             <div class="btn_std {{bouton.couleur}} button">
                 <div class="bandeau">
