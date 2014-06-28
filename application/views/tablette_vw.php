@@ -12,7 +12,7 @@
                     <span> <?php echo $value['nom']; ?> </span>
                 </div>
                 <div class="content">
-                    <a href="<?php echo base_url() ;?><?php echo $value['url']; ?>" class="btn" type="button">
+                    <a href="<?php echo $value['url']; ?>" class="btn" type="button">
                         <span class="glyphicon glyphicon-2x glyphicon-<?php echo $value['icone']; ?>"></span>
                     </a>
                 </div>
@@ -39,7 +39,7 @@
                     <span> <?php echo $value['nom']; ?> </span>
                 </div>
                 <div class="content">
-                    <a href="<?php echo base_url() ;?><?php echo $value['url']; ?>" class="btn" type="button">
+                    <a href="<?php echo $value['url']; ?>" class="btn" type="button">
                         <span class="glyphicon glyphicon-2x glyphicon-<?php echo $value['icone']; ?>"></span>
                     </a>
                 </div>

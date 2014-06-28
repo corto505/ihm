@@ -1,6 +1,6 @@
 //::::::::::::::::  ANGULAR  ::::::::::::
 var app = angular.module('domo',['ngAnimate','ngTouch']);
-var ip_serveur = "http://192.168.0.70/";
+var ip_serveur = "http://192.168.0.66:8090/";
 var ip_nodejs1 = "http://192.168.0.70:3000/";
 
 app.config(function($locationProvider){
@@ -139,7 +139,7 @@ app.controller ('ctrlStates',function($scope,$http){
   $scope.send_cde_stat=function(code){
     
      $scope.method = 'GET';
-    $scope.url = ip_nodejs1+'vnstat/'+code;
+    $scope.url = ip_serveur+"ihm/index.php/vn_states/commande/"+code;
 
     $scope.response = null;
 

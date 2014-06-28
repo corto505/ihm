@@ -42,7 +42,7 @@ class Modules extends CI_Controller {
 	public function send_cde($id,$cde){ 
 	
 		$url=prefrences("domoticz").'json.htm?type=command&param=switchlight&idx='.$id.'&switchcmd='.$cde.'&level=0';
-		echo '<br> modules : URL = '.$url;
+		//echo '<br> modules : URL = '.$url;
 		$content = curl_json($url);
 		//var_dump($content);
 		///redirect(base_url());

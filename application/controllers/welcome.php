@@ -274,21 +274,8 @@ class Welcome extends CI_Controller {
 			$this->load->view('error_vw',$data);
 		}else{
 			redirect(base_url());
-		}
-
-	
+		}	
         }
-
-      /***
-     *  Statistiques RBI - interroge le servur nodeJS du RBI via Angular
-     ***/
-     public function p_states(){
-     	$data['title']= 'Statistiques';
-		$data['leType']= '';
-		$this->load->view('states_vw',$data);
-
-     }
-
 
 	//:::::::::::   PRIVATE  :::::::::::::::
 	/*
