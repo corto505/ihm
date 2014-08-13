@@ -347,11 +347,15 @@ body a {
   color: white;
 }
 
-/**
-/*  LA meteo 
+/*****************
+*   Btn volet
 */
-/* line 240, ../sass/mystyle.scss */
-.cadre_meteo {
+
+.vlt_btn{
+  display: block;
+  width : 50px;
+  margin-left: 30%;
+
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -362,6 +366,31 @@ body a {
   background-image: -moz-linear-gradient(left top, #000000, #777777);
   background-image: -o-linear-gradient(left top, #000000, #777777);
   background-image: linear-gradient(left top, #000000, #777777);
+  -webkit-box-shadow: grey 2px 2px 8px;
+  -moz-box-shadow: grey 2px 2px 8px;
+  box-shadow: grey 2px 2px 8px;
+  border: solid #333 1px;
+  padding: 4px;'
+}
+
+.vlt_titre{
+  margin-bottom: 10px;
+}
+/**
+/*  LA meteo 
+*/
+/* line 240, ../sass/mystyle.scss */
+.cadre_meteo {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #333333), color-stop(100%, #AAAAAA));
+  background-image: -webkit-linear-gradient(left top, #333333, #AAAAAA);
+  background-image: -moz-linear-gradient(left top, #333333, #AAAAAA);
+  background-image: -o-linear-gradient(left top, #333333, #AAAAAA);
+  background-image: linear-gradient(left top, #333333, #AAAAAA);
   -webkit-box-shadow: grey 2px 2px 8px;
   -moz-box-shadow: grey 2px 2px 8px;
   box-shadow: grey 2px 2px 8px;

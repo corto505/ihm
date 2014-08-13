@@ -6,7 +6,11 @@ class Welcome extends CI_Controller {
 	* Ecran pour afficher les boutons rapde, pour un acces rapide
 	* ce fait par une lecture de fichier Json
 	*/
-	public function index(){
+
+	/**public function index(){ //erreur temporaire le temps de trouver une solution
+		echo '** Error : time out ***'; die();
+	}*/
+	public function index(){ 
 
 		$this->load->model('File_json_md');
 		$data = $this->File_json_md->p_lireFileJson ('boutons_rapide');

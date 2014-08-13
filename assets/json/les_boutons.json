@@ -38,6 +38,15 @@
 		}
 	],
 	"menu" : [
+	{
+		    "type" : "menu",
+		    "nom" : "Volets",
+		    "icone" : "list-alt",
+		    "couleur" : "btn-yellow",
+		    "pied" : "action-relais",
+		    "actif" : true,
+		    "url" :  "volets"
+	  	},
 		{
 		    "type" : "menu",
 		    "nom" : "Pièces",

@@ -78,6 +78,10 @@ if(!function_exists('prefrences'))
 				return "http://192.168.0.66:8080/";
 				break;
 			
+			case 'nodejs':
+				return "http://192.168.0.64:3000/";
+				break;
+
 			default:
 				return "!**! erreur de paramètres";
 				break;

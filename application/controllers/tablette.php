@@ -22,3 +22,4 @@ class Tablette extends CI_Controller {
 		$this->load->view('tablette_vw',$data);
 	}
 }
+?>

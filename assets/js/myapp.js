@@ -1,7 +1,7 @@
 //::::::::::::::::  ANGULAR  ::::::::::::
 var app = angular.module('domo',['ngAnimate','ngTouch']);
 var ip_serveur = "http://192.168.0.66:8090/";
-var ip_nodejs1 = "http://192.168.0.70:3000/";
+var ip_nodejs1 = "http://192.168.0.64:3000/";
 
 app.config(function($locationProvider){
   $locationProvider.html5Mode(true);
@@ -187,6 +187,31 @@ $(document).on("click", ".btn_appareil", function() {
         });
 });
 
+
+/**
+*   gestion des boutons des voletz
+*/
+$(document).on("click", ".vlt_btn", function() { 
+
+        var idbtn = $(this).attr('idbtn');
+       // var typebtn = $(this).attr('typebtn');
+         // alert('id btn = '+idbtn) ; //+" type cde"+typebtn);
+          
+        $.ajax({
+          type: "GET",
+              url: "volets/relai_pulse/"+idbtn,
+          error:function(msg){
+           alert( "Error cde relai !: " + msg );
+          console.log(msg);
+          },
+          success:function(data){
+              //affiche le contenu du fichier dans le conteneur dédié
+              console.log('data: '+data);
+              $('#retour').text(data);
+            //  socket.emit('messclient',{message : 'app = '+name+' -> '+typebtn}); // on envoi un mess au serveur IO
+          }
+        });
+});
 
 $(document).ready(function() {
 

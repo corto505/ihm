@@ -14,6 +14,7 @@ class File_json_md extends CI_Model {
 		if (file_exists($pathFile)){
 			
 			$contenu = read_file ($pathFile);
+			//var_dump($contenu);die('json');
 			return $contenu;
 		}else{
 		

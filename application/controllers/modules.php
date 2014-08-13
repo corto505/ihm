@@ -40,15 +40,35 @@ class Modules extends CI_Controller {
 	*  Envoi une commande à domoticz
 	*/
 	public function send_cde($id,$cde){ 
-	
+		
+		$this->load->helper('file');
+		write_file('./assets/json/modules_debug.log', date('Y-m-d H:i').' : json.htm?type=command&param=switchlight&idx='.$id.'&switchcmd='.$cde."\r\n", 'a');
+		
 		$url=prefrences("domoticz").'json.htm?type=command&param=switchlight&idx='.$id.'&switchcmd='.$cde.'&level=0';
 		//echo '<br> modules : URL = '.$url;
 		$content = curl_json($url);
-		//var_dump($content);
 		///redirect(base_url());
 		
         }
 
+
+ /*
+	*  Envoi une commande au serveur nodejs/Rpbi1 pour actionner un relai
+	
+	public function send_cde_relai($id,$tempo=0){ 
+		
+		//$this->load->helper('file');
+		//write_file('./assets/json/modules_debug.log', date('Y-m-d H:i').' : json.htm?type=command&param=switchlight&idx='.$id.'&switchcmd='.$cde."\r\n", 'a');
+		
+		$url=prefrences("nodejs").'vntest/'.$id;
+		echo '<br> modules : URL = '.$url;
+		$content = curl_json($url);
+		var_dump($content);
+		///redirect(base_url());
+		
+        }
+*/
+        
 
 /**
  *  Affiche les modules par pieces via ajax et ANgular
