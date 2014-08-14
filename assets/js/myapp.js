@@ -188,10 +188,13 @@ $(document).on("click", ".btn_appareil", function() {
 });
 
 
-/**
-*   gestion des boutons des voletz
+
+$(document).ready(function() {
+
+  /**
+*   gestion des boutons des volets
 */
-$(document).on("click", ".vlt_btn", function() { 
+$(".vlt_btn").click (function() { 
 
         var idbtn = $(this).attr('idbtn');
        // var typebtn = $(this).attr('typebtn');
@@ -199,21 +202,45 @@ $(document).on("click", ".vlt_btn", function() {
           
         $.ajax({
           type: "GET",
-              url: "volets/relai_pulse/"+idbtn,
+              url: "relai_pulse/"+idbtn,
           error:function(msg){
            alert( "Error cde relai !: " + msg );
           console.log(msg);
           },
           success:function(data){
               //affiche le contenu du fichier dans le conteneur dédié
-              console.log('data: '+data);
               $('#retour').text(data);
             //  socket.emit('messclient',{message : 'app = '+name+' -> '+typebtn}); // on envoi un mess au serveur IO
           }
         });
 });
 
-$(document).ready(function() {
+
+/**
+*   gestion des boutons des volets groupes
+*/
+$(".vlt_gp_btn").click (function() { 
+
+        var idgp = $(this).attr('idgp');
+        var idordre = $(this).attr('idordre');
+       // var typebtn = $(this).attr('typebtn');
+        // alert('id btn = '+idordre) ; //+" type cde"+typebtn);
+          
+        $.ajax({
+          type: "GET",
+              url: "volet_action_groupe/"+idgp+"/"+idordre,
+          error:function(msg){
+           alert( "Error cde relai !: " + msg );
+          console.log(msg);
+          },
+          success:function(data){
+              //affiche le contenu du fichier dans le conteneur dédié
+              $('#retour').text(data);
+            //  socket.emit('messclient',{message : 'app = '+name+' -> '+typebtn}); // on envoi un mess au serveur IO
+          }
+        });
+});
+
 
    //:::::::           EVENT CHARGEMENT                :::::::
    

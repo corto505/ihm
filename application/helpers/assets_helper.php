@@ -59,7 +59,7 @@ if(!function_exists('curl_json'))
 
 		// Close connection
 		curl_close($ch);
-
+		//var_dump($result);die('*** crul ***');
 		// get the result and parse to JSON
 		if($sortie=='tab')
 			return json_decode($result, true);
