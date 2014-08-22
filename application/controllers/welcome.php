@@ -28,6 +28,15 @@ class Welcome extends CI_Controller {
 		$this->load->view('btn_rapide_vw',$data);
 	}
 
+/**
+*  Permet de tester le service
+*  http://192.168.0.66:8090/ihm/index.php/welcome/test_ping
+*/
+public function test_ping(){
+	echo(  json_encode('resultat ok'));
+
+}
+
 
 	public function menu() //ok => Menu principales voir controller tablette 2n solution
 	{
