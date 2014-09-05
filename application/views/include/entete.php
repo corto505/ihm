@@ -5,7 +5,7 @@
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Cache-Control" content="public"/>
     <meta name="viewport" content="width=1057px" />
-    <title>Tableau de bord </title>
+    <title><?php echo $leType; ?> </title>
 
   
       <link rel="stylesheet" href="<?php echo css_url('bootstrap.min') ?>">

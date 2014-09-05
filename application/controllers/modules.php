@@ -7,7 +7,7 @@ class Modules extends CI_Controller {
 	*  Par defaut affiche les lumieres
 	*/
 	public function index(){ //ok
-		$this->liste_modules('Lighting');
+		$this->liste_modules('Light');
      }
 	
     /*
