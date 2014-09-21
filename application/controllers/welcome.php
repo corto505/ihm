@@ -28,14 +28,74 @@ class Welcome extends CI_Controller {
 		$this->load->view('btn_rapide_vw',$data);
 	}
 
-/**
-*  Permet de tester le service
-*  http://192.168.0.66:8090/ihm/index.php/welcome/test_ping
-*/
-public function test_ping(){
-	echo(  json_encode('resultat ok'));
+	/**
+	*  Rassemble les menus Tablette , general, et volets dans une seules page
+	* avec des onglets 11/09/2014
+	*/
+	public function tableau_central(){
 
-}
+		$data = array ('title' =>'Menu tablette',
+				'leType' => 'accueil',
+				'erreur' => '',
+				);
+
+		// Creation du premier Onglet = Btn rapide 
+		$this->load->model('File_json_md');
+		$data_btn = $this->File_json_md->p_lireFileJson ('boutons_rapide');
+		//var_dump($data);die();
+		$montab = json_decode($data_btn,true);
+		$data['btn_tdb'] = $montab['btn'];
+
+		
+		// Creation du premier Onglet = Btn rapide 
+		$this->load->model('Volets_md');
+		$montTabJson = $this->Volets_md->lireFileVolets('json');
+
+		$data['les_volets']=$montTabJson;
+
+		$this->load->view('menu_tab_vw',$data);
+	}
+
+
+	/**
+	*  Permet de tester le service
+	*  http://192.168.0.66:8090/ihm/index.php/welcome/test_ping
+	*/
+	public function test_ping(){
+		echo(  json_encode('resultat ok'));
+
+	}
+
+	/**
+	*  Pour la page relai et la tablette, recharge la page
+	* pour garder le wifi actif
+	*/
+	public function reload_page(){
+			echo (' Last update : '. date('Y-m-d H:i:s'));
+
+	}
+
+	/**
+	*  Permet de lire un flux RSS sur un site
+	* et de le mettre en forme => Appel Ajax
+	*/
+	public function read_rss(){
+
+			$curl = curl_init();
+			curl_setopt ($curl,CURLOPT_URL,"http://www.lepoint.fr/rss.xml");
+			curl_setopt ($curl,CURLOPT_RETURNTRANSFER,true);
+
+			$content = curl_exec($curl);
+			//$content = simplexml_load_file("http://www.lepoint.fr/rss.xml");
+			$xml = new simpleXMLELEMENT($content);
+			//echo '<pre>';var_dump($xml);die('xxxx');
+			echo('<ul>');
+			foreach($xml->channel->item as $val){
+				echo('<li>'.$val->title.'<p>'.$val->description.'</p></li>');
+			}
+			echo('</ul>');
+		//	$this->load->view('onglet_vw',$data);
+	}
 
 
 	public function menu() //ok => Menu principales voir controller tablette 2n solution
@@ -301,5 +361,16 @@ private function p_boutonTab(){
 		return '';
 	}
 
- 
+ 	//:::::::::::   TEST  :::::::::::::::
+
+public function tps_reel(){
+
+	$data['title']= 'temps reel';
+	$data['leType']= 'socket';
+	$this->load->view('socket_vw.php',$data);
+
 }
+
+
+}
+

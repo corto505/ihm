@@ -31,7 +31,6 @@
 </div>
 
 <div class="row barre_menu">
-    <span> <?php echo $leType; ?> </span>
     <a href="/ihm" class="btn btn-green ">
         <span class="glyphicon glyphicon-2x glyphicon-time"> </span>
     </a>

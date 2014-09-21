@@ -29,6 +29,8 @@ body a {
 /* line 36, ../sass/mystyle.scss */
 .barre_menu a {
   color: white;
+  padding-left: 40px;
+
 }
 
 /* line 39, ../sass/mystyle.scss */
@@ -155,6 +157,17 @@ body a {
 #ladate #mois {
   font-size: 3.5em;
 }
+
+/**************************
+*     LES ONGLETS 
+**************************/
+
+.tabs{
+  float: left;
+  display: inline;
+
+}
+
 
  /*************************
 *   Couleurs des boutons
