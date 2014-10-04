@@ -4,17 +4,17 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Cache-Control" content="public"/>
-    <meta name="viewport" content="width=1057px" />
+    <meta name="viewport" content="width=1057" />
     <title><?php echo $leType; ?> </title>
 
   
       <link rel="stylesheet" href="<?php echo css_url('bootstrap.min') ?>">
       <link rel="stylesheet" href="<?php echo css_url('mystyle') ?>">
 
-    <script type="text/javascript" src="<?php echo js_url('jquery_1.10.min') ?>"></script>
-    <script type="text/javascript" src="<?php echo js_url('angular.min') ?>"></script>
-     <script type="text/javascript" src="<?php echo js_url('angular-touch.min') ?>"></script>
-      <script type="text/javascript" src="<?php echo js_url('angular-animate.min') ?>"></script>
+    <script type="text/javascript" src="<?php echo js_url('jquery/jquery_1.10.min') ?>"></script>
+    <script type="text/javascript" src="<?php echo js_url('angular/angular.min') ?>"></script>
+     <script type="text/javascript" src="<?php echo js_url('angular/angular-touch.min') ?>"></script>
+      <script type="text/javascript" src="<?php echo js_url('angular/angular-animate.min') ?>"></script>
     <script type="text/javascript" src="<?php echo js_url('myapp') ?>"></script>
  
 </head>
@@ -37,7 +37,7 @@
     <a href="<?php echo base_url() ;?>index.php/welcome/speech" class="btn btn-green ">
         <span class="glyphicon glyphicon-2x glyphicon-volume-down"> </span>
      </a>
-<?php if ($leType=="Météo") {
+<?php if ($leType=="Météo") {  // Ajout mennu specifique pour Meteo 
     echo '
      <button class="btn btn-green" id="btnMenu">
         <span class="glyphicon glyphicon-2x glyphicon-list-alt"> </span>

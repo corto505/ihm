@@ -4,14 +4,14 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Cache-Control" content="public"/>
-    <meta name="viewport" content="width=1057px" />
+    <meta name="viewport" content="width=1057" />
     <title>Tableau de bord </title>
 
   
       <link rel="stylesheet" href="<?php echo css_url('bootstrap.min') ?>">
       <link rel="stylesheet" href="<?php echo css_url('mystyle') ?>">
 
-    <script type="text/javascript" src="<?php echo js_url('jquery_1.10.min') ?>"></script>
+    <script type="text/javascript" src="<?php echo js_url('jquery/jquery_1.10.min') ?>"></script>
     <script type="text/javascript" src="<?php echo js_url('speech') ?>"></script>
   
 </head>
