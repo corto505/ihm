@@ -15,7 +15,6 @@
     <script type="text/javascript" src="<?php echo js_url('angular/angular.min') ?>"></script>
      <script type="text/javascript" src="<?php echo js_url('angular/angular-touch.min') ?>"></script>
       <script type="text/javascript" src="<?php echo js_url('angular/angular-animate.min') ?>"></script>
-    <script type="text/javascript" src="<?php echo js_url('myapp') ?>"></script>
  
 </head>
 

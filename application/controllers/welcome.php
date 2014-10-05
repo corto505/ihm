@@ -29,6 +29,19 @@ class Welcome extends CI_Controller {
 	}
 
 	/**
+	* Ecran pour phone avec Angularjs
+	*/
+	public function phone(){ 
+
+		$data = array ('title' =>'Menu tablette',
+				'leType' => 'Light',
+				'erreur' => '',
+					);
+
+		$this->load->view('phone_vw',$data);
+	}
+
+	/**
 	*  Rassemble les menus Tablette , general, et volets dans une seules page
 	* avec des onglets 11/09/2014
 	*/

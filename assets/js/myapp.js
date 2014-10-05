@@ -190,7 +190,7 @@ $(document).on("click", ".btn_appareil", function() {
 
    //:::::::           EVENT CHARGEMENT                :::::::
    
-      $('#tabMenu').hide();
+  $('#tabMenu').hide();
    
      //------- CALENDRIER  ---------
    var madate = new Date();
@@ -202,8 +202,6 @@ $(document).on("click", ".btn_appareil", function() {
    $('#jour').html(lejour);
    $('#mois').html(nomDesJours[indicejour]);
  
- 
-   
      //:::::::              EVENT ON CLICK                 :::::::
      
       //-----    affiche la div Meteo  ------
@@ -227,7 +225,6 @@ $(document).on("click", ".btn_appareil", function() {
     });
    
    
-});
 
 
 //::::::  *********  LES TESTT  ::::::::::
