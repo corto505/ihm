@@ -1,0 +1,28 @@
+[{
+  "name"	: "Gauche",
+  "haut"	: "1",
+  "stop"	: "2",
+  "bas"		: "3",
+  "couleur"	: "vert"
+},
+{
+  "name"	: "Droite",
+  "haut"	: "16",
+  "stop"	: "15",
+  "bas"		: "14",
+  "couleur"	: "vert"
+},
+{
+  "name"	: "Entrée",
+  "haut"	: "4",
+  "stop"	: "5",
+  "bas"		: "6",
+  "couleur"	: "vert"
+},
+{
+  "name"	: "Cuisine",
+  "haut"	: "13",
+  "stop"	: "12",
+  "bas"		: "11",
+  "couleur"	: "vert"
+}]
