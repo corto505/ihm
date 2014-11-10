@@ -19,21 +19,23 @@ class Volets extends CI_Controller {
 /**
 *  permet de demander une impulsion plus ou moins courte à un relai
 */
+/* plus utilise, PB err 500, on passe directement par $ajax
 public function relai_pulse($id_volet,$delai=300){
 
 	if($id_volet>=1 and $id_volet<=16) {
 		
 		$url=prefrences("nodejs").'relai/'.$id_volet.'/On/'.$delai; //envoi cde vers nodejs
-			//echo '<br> modules : URL = '.$url;
+		//echo '<br> modules : URL = '.$url;
 		$content = curl_json($url);
+		//var_dump($content);die();
 	}else{
 		$content = "Err : pulse_relai";
 	}
 	//var_dump($content);die();
-	//return $content;
+	return 'xxxxxxxxxxx';
 
 }
-
+**/
 
 /**
 * permet de faire fonctionner plusieurs volets dans la meme commande

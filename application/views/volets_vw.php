@@ -45,6 +45,8 @@
 			  		<div class="btn-group">
 						<a href="#" id="vlt_init" class="vlt_gp_btn btn btn-default btn-green glyphicon glyphicon-cog glyphicon-2x"></a>
 						<a href="#" typebtn="On" idbtn="49" class="btn_appareil vlt_gp_btn btn btn-default btn-green glyphicon glyphicon-phone-alt glyphicon-2x"></a>
+						<a href="#" id="testBtn" class="vlt_gp_btn btn btn-default btn-green glyphicon glyphicon-question-sign glyphicon-2x"></a>
+						
 					</div>
 			  </div>
 

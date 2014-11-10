@@ -40,9 +40,9 @@
         <span class="glyphicon glyphicon-2x glyphicon-list-alt"> </span>
      </button>
 
-     <a href="" class="btn btn-green" id="btnMeteo">
+     <button class="btn btn-green" id="btnMeteo">
         <span class="glyphicon glyphicon-2x glyphicon-road"> </span>
-     </a>
+     </button>
      ';
  }?>
  <a href="<?php echo base_url() ;?>index.php/tablette" class="btn btn-green ">

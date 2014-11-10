@@ -93,7 +93,7 @@ app.controller ('ctrlRoom',function($scope,$http){
 
   $http({method: $scope.method, url: $scope.url}).
       success(function(data, status) {
-       //console.log(data);
+       console.log(data);
       $scope.lespieces = data;
 
       }).

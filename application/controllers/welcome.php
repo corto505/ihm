@@ -268,7 +268,7 @@ class Welcome extends CI_Controller {
 	* !!**!! ATTENTION ne pas mettre d'echo, sinon pollue le JSON  !!**!!
 	*/
 	public function lirepieces($format='tab',$sortie='json'){ 
-
+		
 		if($format=='tab'){
 			// lire à partir d'un tableau
 		}else{
@@ -386,4 +386,3 @@ public function tps_reel(){
 
 
 }
-

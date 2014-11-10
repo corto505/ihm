@@ -31,7 +31,6 @@ $(document).on("click", ".btn_appareil", function() {
 });
 
 
-
 $(document).ready(function() {
 
  /**
@@ -67,14 +66,15 @@ $(".vlt_sc").click (function() {
           
         $.ajax({
           type: "GET",
-              url: "volets/relai_pulse/"+idbtn+"/"+ledelai,
+             // url: "http://192.168.0.66:8090/ihm/index.php/volets/relai_pulse/"+idbtn+"/"+ledelai,
+              url: ip_nodejs1+'relai/'+idbtn+'/On/'+ledelai,
           error:function(msg){
-           alert( "Error cde relai !: " + msg );
-          console.log(msg);
+           alert( "app:Error cde relai !: " + msg );
+            console.log(msg);
           },
           success:function(data){
               //affiche le contenu du fichier dans le conteneur dédié
-              $('#retour').text(data);
+              $('#retour').text("commande envoyée");
             //  socket.emit('messclient',{message : 'app = '+name+' -> '+typebtn}); // on envoi un mess au serveur IO
           }
         });
@@ -104,6 +104,27 @@ $(".vlt_sc_gp").click (function() {
             //  socket.emit('messclient',{message : 'app = '+name+' -> '+typebtn}); // on envoi un mess au serveur IO
           }
         });
+});
+
+$('#testBtn').click(function(){
+ //alert('test btn');
+    $.ajax ({
+        type: 'GET',
+        url: ip_nodejs1+'test_json',
+        dataType: 'json',
+
+        error: function(msg){
+          alert('App : erreur file json');
+
+        },
+        success:function(data){
+              //affiche le contenu du fichier dans le conteneur dédié
+              $('#retour').text(data);
+            //  socket.emit('messclient',{message : 'app = '+name+' -> '+typebtn}); // on envoi un mess au serveur IO
+          }
+    });
+
+   // alert(ip_nodejs1+'test_json');
 });
 
 
