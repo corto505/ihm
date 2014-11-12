@@ -2,6 +2,7 @@
 var app = angular.module('domo',['ngAnimate','ngTouch']);
 var ip_serveur = "http://192.168.0.66:8090/";
 var ip_nodejs1 = "http://192.168.0.64:3000/";
+var ip_domoticz ="http://192.168.0.66:8080/";
 
 app.config(function($locationProvider){
   $locationProvider.html5Mode(true);
@@ -173,11 +174,14 @@ $(document).on("click", ".btn_appareil", function() {
         var typebtn = $(this).attr('typebtn');
           //alert('id btn = '+idbtn+" type cde"+typebtn);
           
+            //  url: ip_serveur+"ihm/index.php/modules/send_cde/"+idbtn+"/"+typebtn,
+
+
         $.ajax({
           type: "GET",
-              url: ip_serveur+"ihm/index.php/modules/send_cde/"+idbtn+"/"+typebtn,
+            url : ip_domoticz+'json.htm?type=command&param=switchlight&idx='+idbtn+'&switchcmd='+typebtn+'&level=0',
           error:function(msg){
-           alert( "Error !: " + msg );
+          // alert( "app:Error !: " + msg );
           },
           success:function(data){
               //affiche le contenu du fichier dans le conteneur dédié
