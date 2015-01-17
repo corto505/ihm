@@ -34,12 +34,16 @@
          
                  
 	           <div class="btn-danger">
-	            	<div class="text-center vlt_titre text-danger">All manuel </div>
+	            	<div class="text-center vlt_titre text-danger">Volets Entrée</div>
 	            	<div class="text-center">
-	            		<a hre="#" idgp="all-manuel" idordre="haut" delai="1000" type="button" class="vlt_sc_gp vlt_gp_btn btn vlt_btn glyphicon glyphicon-arrow-up glyphicon-2x"></a><br>
+	            		<!--<a hre="#" idgp="all-manuel" idordre="haut" delai="1000" type="button" class="vlt_sc_gp vlt_gp_btn btn vlt_btn glyphicon glyphicon-arrow-up glyphicon-2x"></a><br>
 	            		<a hre="#"  type="button" class="vlt_gp_btn btn vlt_btn glyphicon glyphicon-stop glyphicon-2x"></a><br>
-	            		</div>
-	        	</div>
+	            		<a hre="#" idgp="all-demi" idordre="bas" delai="1000" type="button" class="vlt_sc_gp vlt_gp_btn btn vlt_btn glyphicon glyphicon-arrow-down glyphicon-2x"></a><br> -->
+	            		<a hre="#" idbtn="4" delai="200" class="vlt_sc vlt_btn glyphicon glyphicon-arrow-up glyphicon-2x"></a><br>
+	            		<a hre="#" idbtn="5" delai="200" class="vlt_sc vlt_btn glyphicon glyphicon-stop glyphicon-2x"></a><br>
+	            		<a hre="#" idbtn="6" delai="200" class="vlt_sc vlt_btn glyphicon glyphicon-arrow-down glyphicon-2x"></a><br>
+	            	</div>
+	        </div>
 
 				<div class="btn-group">
 			  		<div class="btn-group">
