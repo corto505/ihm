@@ -2,3 +2,5 @@ system/*
 application/config/config.php
 application/config/database.php
 .DS_Store
+assets/.sass-cache/*
+assets/json/modules_debug.log
