@@ -54,3 +54,9 @@
 2014-10-05 22:06 : json.htm?type=command&param=switchlight&idx=49&switchcmd=On
 2014-11-10 19:06 : json.htm?type=command&param=switchlight&idx=49&switchcmd=On
 2014-11-10 23:27 : json.htm?type=command&param=switchlight&idx=9&switchcmd=On
+<<<<<<< HEAD
+=======
+2014-11-11 18:32 : json.htm?type=command&param=switchlight&idx=12&switchcmd=On
+2014-11-11 18:34 : json.htm?type=command&param=switchlight&idx=12&switchcmd=On
+2014-11-11 18:34 : json.htm?type=command&param=switchlight&idx=12&switchcmd=On
+>>>>>>> e8ff127149f881066b6aa86fb5b403ba3f07bc12

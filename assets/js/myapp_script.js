@@ -14,8 +14,8 @@ $(document).on("click", ".btn_appareil", function() {
 
         var idbtn = $(this).attr('idbtn');
         var typebtn = $(this).attr('typebtn');
-         // alert('id btn = '+idbtn+" type cde"+typebtn);
-          
+         alert('btn_app : id btn = '+idbtn+" type cde"+typebtn);
+         /* 
         $.ajax({
           type: "GET",
               url: ip_serveur+"ihm/index.php/modules/send_cde/"+idbtn+"/"+typebtn,
@@ -28,6 +28,7 @@ $(document).on("click", ".btn_appareil", function() {
             //  socket.emit('messclient',{message : 'app = '+name+' -> '+typebtn}); // on envoi un mess au serveur IO
           }
         });
+*/
 });
 
 
@@ -62,8 +63,8 @@ $(".vlt_sc").click (function() {
         var ledelai = $(this).attr('delai');
 
        // var typebtn = $(this).attr('typebtn');
-         // alert('id btn = '+idbtn) ; //+" type cde"+typebtn);
-          
+          //alert('vlt_sc : id btn = '+idbtn) ; //+" type cde"+typebtn);
+        // alert(ip_nodejs1+'relai/'+idbtn+'/On/'+ledelai);
         $.ajax({
           type: "GET",
              // url: "http://192.168.0.66:8090/ihm/index.php/volets/relai_pulse/"+idbtn+"/"+ledelai,
@@ -78,6 +79,7 @@ $(".vlt_sc").click (function() {
             //  socket.emit('messclient',{message : 'app = '+name+' -> '+typebtn}); // on envoi un mess au serveur IO
           }
         });
+
 });
 
 
